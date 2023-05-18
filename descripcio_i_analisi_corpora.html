@@ -17,9 +17,12 @@
   margin: 25pt 85pt 65pt 95pt;
   word-wrap: break-word;
   font-family: Helvetica;
-  font-size: 14.0pt;
+  font-size: 12.0pt;
   line-height: 1.5;
+  background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
   }
+
+    background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
 
   .reduspace {
   margin-bottom: 0.1em;
@@ -27,8 +30,15 @@
 
   .emf {
   font-weight: bold;
-  font-size: 14.0pt;
+  font-size: 12.5pt;
   }
+
+  .mono {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 12.0pt;
+}
+
+  
   .WordSection1 {
   /* margin-left: 14.85pt; */
   text-align: left;
@@ -71,35 +81,42 @@
   in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
 
   .Title1 {
-  font-size: 26.0pt;
+  font-size: 22.0pt;
   font-weight: bold;
   line-height: 2;
   font-family: Helvetica;
   }
   
    .Title2 {
-  font-size: 20.0pt;
+  font-size: 18.0pt;
   font-weight: bold;
   line-height: 2;
   font-family: Helvetica;
   }
 
   .TitleBurgundyBig {
-  font-size: 22.0pt;
+  font-size: 18.0pt;
   font-weight: bold;
   /*   line-height: 110%; */
   font-family: Helvetica;
   color: #971930;
   }
   .TitleBluishSmall {
-  font-size: 18.0pt;
+  font-size: 16.0pt;
   font-weight: bold;
   line-height: 110%;
   font-family: Helvetica;
   color: #262192;
   }
   .TitleGreenSmall {
-  font-size: 18.0pt;
+  font-size: 16.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #0A4803;
+  }
+   .GreenSmall {
+  font-size: 12.0pt;
   font-weight: bold;
   line-height: 110%;
   font-family: Helvetica;
@@ -169,6 +186,23 @@
   .blink {
   animation: blink-animation 2s linear infinite;
   }
+  
+
+/* 
+  hr {
+    color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }  
+ */
+
+
+ hr {
+    height: 2px;
+  /*   border-style: dashed; */
+    border-color: #3A2B69;
+  }
+  
+
+
+
   </style>
   <script>
     
@@ -179,41 +213,37 @@
     blinkingText.style.animationPlayState = "paused";
   }, 3000);
 
-        window.onload = function() {
-            const buttons = document.querySelectorAll("button.copy-code-button");
-            buttons.forEach(function(button) {
-                button.textContent = "Copy";
-            });
+window.onload = function() {
+    const buttons = document.querySelectorAll("button.copy-code-button");
+    buttons.forEach(function(button) {
+        button.textContent = "Copy";
+    });
 
-            const codeElements = document.querySelectorAll('code');
-            codeElements.forEach((code) => {
-                const container = document.createElement('div');
-                container.classList.add('code-container');
+    const codeElements = document.querySelectorAll('code');
+    codeElements.forEach((code) => {
+        const container = document.createElement('div');
+        container.classList.add('code-container');
 
-                const textNode = document.createTextNode(code.textContent);
-                container.appendChild(textNode);
+        const textNode = document.createTextNode(code.textContent);
+        container.appendChild(textNode);
 
-                const button = document.createElement('button');
-                button.classList.add('copy-code-button');
-                button.textContent = 'Copy';
-                container.appendChild(button);
+        const button = document.createElement('button');
+        button.classList.add('copy-code-button');
+        button.textContent = 'Copy';
+        container.appendChild(button);
 
-                button.addEventListener('click', () => {
-                    if (code.textContent.match(/^\[pos=".*"\]$/)) {
-                        const stringToCopy = code.textContent;
-                        navigator.clipboard.writeText(stringToCopy);
-                    }
-                });
+        button.addEventListener('click', () => {
+            const stringToCopy = code.textContent;
+            navigator.clipboard.writeText(stringToCopy);
+        });
 
-                code.parentNode.replaceChild(container, code);
-            });
-        }
-
-
+        code.parentNode.replaceChild(container, code);
+    });
+}
 
 
   </script>
-  <title></title>
+  <title>Corpora for Descripció i Anàlisi (Anglès)</title>
 </head>
 <body>
   <div class="Title1">
@@ -224,81 +254,127 @@
   </div><br>
   <div class="TitleBluishSmall">
     Corpus 1 (COCA)
-  </div><br>
-  <a href="http://corptedig-glif.upf.edu/cqpweb/coca/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/coca/</a> (user: guest, pwd: guest)<br>
-  <strong>Complete tagset:</strong> <a href="http://www.natcorp.ox.ac.uk/docs/c7spec.html" target="_blank" rel="noopener noreferrer">http://www.natcorp.ox.ac.uk/docs/c7spec.html</a><br>
+  </div>
+ <br>
+  <a href="http://corptedig-glif.upf.edu/cqpweb/coca/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/coca/</a> (user: guest, pwd: guest)
+  <br>
+  <span class="blink" id="blinking-text"> Make sure you select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</span><br>
   <br>
   <span class="animated-text">Important note:</span> The tagset is almost identical to the one used by Sketchengine but in this corpus you need to use [pos=".*"] instead of [tag=".*"] in the CQL query and use lower case for the POS tags.<br>
-<div class="blink" id="blinking-text">Select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</div>
+
 
   <p class="TitleGreenSmall">List of relevant tags:</p>
-  <strong>Nouns</strong> ➝ <code>[pos="n.*"]</code><br>
-  <strong>Verbs</strong> ➝ <code>[pos="vv.*"]</code><br>
-  <strong>Determiners</strong> ➝ <code>[pos="dd.*"]</code><br>
-  <strong>Articles</strong> ➝ <code>[pos="at.*"]</code><br>
-  <strong>Adjectives</strong> ➝ <code>[pos="j.*"]</code><br>
-  <strong>Prepositions</strong> ➝ <code>[pos="i.*"]</code><br>
-  <strong>Pronouns</strong> ➝ <code>[pos="pp.*"]</code><br>
-  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[pos="rp"]</code> (relevant for phrasal verbs)
+  <strong>Nouns</strong> ➝ <span class="mono"><code>[pos="n.*"]</code></span><br>
+  <strong>Verbs</strong> ➝ <span class="mono"><code>[pos="vv.*"]</code></span><br>
+  <strong>Determiners</strong> ➝ <span class="mono"><code>[pos="dd.*"]</code></span><br>
+  <strong>Articles</strong> ➝ <span class="mono"><code>[pos="at.*"]</code></span><br>
+  <strong>Adjectives</strong> ➝ <span class="mono"><code>[pos="j.*"]</code></span><br>
+  <strong>Prepositions</strong> ➝ <span class="mono"><code>[pos="i.*"]</code></span><br>
+  <strong>Pronouns</strong> ➝ <span class="mono"><code>[pos="pp.*"]</code></span><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <span class="mono"><code>[pos="rp"]</code></span> (relevant for phrasal verbs)
+  <br> <br>
+ <span class="GreenSmall"> Complete tagset:</span> <a href="http://www.natcorp.ox.ac.uk/docs/c7spec.html" target="_blank" rel="noopener noreferrer">http://www.natcorp.ox.ac.uk/docs/c7spec.html</a><br>
   <p class="TitleBurgundyBig">British English:</p>
   <div class="TitleBluishSmall">
     Corpus 2 (BNC in Sketchengine)
   </div><br>
-  <a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer">https://app.sketchengine.eu/</a> (choose British National Corpus - BNC) <br><strong>Complete tagset:</strong> <a href="https://www.sketchengine.eu/english-treetagger-pipeline-2/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-treetagger-pipeline-2/</a>
-  <p class="TitleGreenSmall">List of relevant tags:</p><strong>Nouns</strong> ➝ <code>[tag="N.*"]</code><br>
-  <strong>Verbs</strong> ➝ <code>[tag="VV.*"]</code><br>
-  <strong>Determiners</strong> (includes articles) ➝ <code>[tag="DT"]</code><br>
-  <strong>Adjectives</strong> ➝ <code>[tag="J.*"]</code><br>
-  <strong>Prepositions</strong> ➝ <code>[tag="IN.*"]</code><br>
-  <strong>Pronouns</strong> ➝ <code>[tag="PP"]</code><br>
-  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[tag="RP"]</code> (relevant for phrasal verbs)<br>
-  <br>
+  <a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer">https://app.sketchengine.eu/</a> (choose British National Corpus - BNC) 
+  <p class="TitleGreenSmall">List of relevant tags:</p>
+  <strong>Nouns</strong> ➝ <span class="mono"><code>[tag="N.*"]</code></span><br>
+  <strong>Verbs</strong> ➝ <span class="mono"><code>[tag="VV.*"]</code></span><br>
+  <strong>Determiners</strong> (includes articles) ➝ <span class="mono"><code>[tag="DT"]</code></span><br>
+  <strong>Adjectives</strong> ➝ <span class="mono"><code>[tag="J.*"]</code></span><br>
+  <strong>Prepositions</strong> ➝ <span class="mono"><code>[tag="IN.*"]</code></span><br>
+  <strong>Pronouns</strong> ➝ <span class="mono"><code>[tag="PP"]</code></span><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <span class="mono"><code>[tag="RP"]</code></span> (relevant for phrasal verbs)<br><br>
+<span class="GreenSmall">Complete tagset:</span> <a href="https://www.sketchengine.eu/english-treetagger-pipeline-2/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-treetagger-pipeline-2/</a>
   <p class="TitleBluishSmall">
     Corpus 3 (BNC UPF)
   </p>
- 
+ <span class="blink" id="blinking-text"> Make sure you select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</span><br>
   <a href="http://corptedig-glif.upf.edu/cqpweb/bnc/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/bnc/</a> (user: guest, pwd: guest)<br>
 
-  <strong>Complete tagset:</strong> <a href="https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/</a><br>
   <br>
-<span class="animated-text">Important note:</span> the tagset used in this corpus is very similar (not completely identical, though) to the one used in Sketchengine. The most important difference is that to do searches you need to use the label 'pos' instead of 'tag'.<span class="blink" id="blinking-text"> Select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</span></p>
+<span class="animated-text">Important note:</span> the tagset used in this corpus is very similar (not completely identical, though) to the one used in Sketchengine. The most important difference is that to do searches you need to use the label 'pos' instead of 'tag'.</p>
   <p class="TitleGreenSmall">
     List of relevant tags:
   </p>
   
-  <strong>Nouns</strong> ➝ <code>[pos="N.*"]</code><br>
-  <strong>Verbs</strong> ➝ <code>[pos="VV.*"]</code><br>
-  <strong>Determiners</strong> ➝ <code>[pos="DT0"]</code><br>
-  <strong>Articles</strong> ➝ <code>[pos="AT0"]</code><br>
-  <strong>Adjectives</strong> ➝ <code>[pos="J.*"]</code><br>
-  <strong>Prepositions</strong> ➝ <code>[pos="PR.*"]</code><br>
-  <strong>Pronouns</strong> ➝ <code>[pos="PN.*"]</code><br>
-  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[pos="RP"]</code> (relevant for phrasal verbs) 
+  <strong>Nouns</strong> ➝ <span class="mono"><code>[pos="N.*"]</code></span><br>
+  <strong>Verbs</strong> ➝ <span class="mono"><code>[pos="VV.*"]</code></span><br>
+  <strong>Determiners</strong> ➝ <span class="mono"><code>[pos="DT0"]</code></span><br>
+  <strong>Articles</strong> ➝ <span class="mono"><code>[pos="AT0"]</code></span><br>
+  <strong>Adjectives</strong> ➝ <span class="mono"><code>[pos="J.*"]</code></span><br>
+  <strong>Prepositions</strong> ➝ <span class="mono"><code>[pos="PR.*"]</code></span><br>
+  <strong>Pronouns</strong> ➝ <span class="mono"><code>[pos="PN.*"]</code></span><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <span class="mono"><code>[pos="RP"]</code></span> (relevant for phrasal verbs) <br><br>
+   <span class="GreenSmall">Complete tagset: </span><a href="https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/</a><br>
 
 <p class="TitleBurgundyBig">Some shortcuts to make your life easier: </p>
 
-<div class="Title2">A Noun Phrase:</div>
 
 <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
-<code>[(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]</code>
+<span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]</code></span>
 
 <p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
-<code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code>
+<span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>
 
 <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-<code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code>
+<span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code></span>
 
 <br>
-<p class="Title2">A choice between two lexical categories (either one or the other):</p>
+<br>
+<hr>
+<hr>
+<br>
 
 <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
-<code>[(pos="x.*")|(pos="x.*")]</code>
+<span class="emf">Anything that's not a Det + Adj + N ➝ </span><span class="mono"><code>[pos!="dd.*"][pos="j.*"]{0,1}[pos="n.*"]</code></span>
 
 <p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
-<code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code>
+<span class="emf">Anything that's not a Det + Adj + N ➝ </span><span class="mono"><code>[tag!="DT"][tag="J.*"]{0,2}[tag="N.*"]</code></span>
 
 <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-<code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code>
+<span class="emf">Anything that's not a Det + Adj + N ➝ </span><span class="mono"><code>[pos!="DT0"][pos="J.*"]{0,2}[pos="N.*"]</code></span>
+
+<br>
+<br>
+<hr>
+<hr>
+<br>
+<p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+<span class="emf">Either x or y ➝ </span><span class="mono"><code>[(pos="x.*")|(pos="y.*")]</code></span>
+
+<p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
+<span class="emf">Either x or y ➝ </span><span class="mono"><code>[(tag="X.*")|(tag="X.*")]</code></span>
+
+<p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+<span class="emf">Either x or y ➝ </span><span class="mono"><code>[(pos="X.*")|(pos="X.*")]</code></span>
+
+<br>
+<br>
+<hr>
+<hr>
+<br>
+<p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+<span class="emf">Lexical category x and Lemma y ➝ </span><span class="mono"><span class="mono"><code>[(pos="x.*")&(lemma="y")]</code></span></span>
+
+<p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
+<span class="emf">Lexical category x and Lemma y ➝ </span><span class="mono"><code>[(tag="x.*")&(tag="x.*")]</code></span>
+
+<p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+<span class="emf">Lexical category x and Lemma y ➝ </span><span class="mono"><code>[(pos="X.*")&(lemma="y.*")]</code></span>
+<br>
+<br>
+<hr>
+<hr>
+<br>
+ <span class="emf">An example of a complex search. <br>
+ Try it and think about what kinds of structures this is able to identify.</span>
+
+<p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+<span class="mono"><code>[pos="VV.*"] ([pos="PN.*"] |[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"])([pos="PN.*"]|[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PR.*"][(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"])</code></span>
+
 </body>
 
 </html>
