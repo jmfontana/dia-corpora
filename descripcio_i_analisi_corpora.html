@@ -1,252 +1,304 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
-
-<style>
-  .code-container {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  button.copy-code-button {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    margin-left: 8px;
-  }
-</style>
-
-<script>
-  window.onload = function() {
-    const buttons = document.querySelectorAll("button.copy-code-button");
-    buttons.forEach(function(button) {
-      button.textContent = "Copy";
-    });
-
-    const codeElements = document.querySelectorAll('code');
-    codeElements.forEach((code) => {
-      const container = document.createElement('div');
-      container.classList.add('code-container');
-
-      const textNode = document.createTextNode(code.textContent);
-      container.appendChild(textNode);
-
-      const button = document.createElement('button');
-      button.classList.add('copy-code-button');
-      button.textContent = 'Copy';
-      container.appendChild(button);
-
-      button.addEventListener('click', () => {
-        if (code.textContent.match(/^\[pos=".*"\]$/)) {
-          const stringToCopy = code.textContent;
-          navigator.clipboard.writeText(stringToCopy);
+  <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+  <style>
+        .code-container {
+            display: inline-block;
+            margin-left: 8px;
         }
-      });
 
-      code.parentNode.replaceChild(container, code);
-    });
+        button.copy-code-button {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+  body {
+  margin: 25pt 85pt 65pt 95pt;
+  word-wrap: break-word;
+  font-family: Helvetica;
+  font-size: 14.0pt;
+  line-height: 1.5;
   }
-</script>
+
+  .reduspace {
+  margin-bottom: 0.1em;
+  }
+
+  .emf {
+  font-weight: bold;
+  font-size: 14.0pt;
+  }
+  .WordSection1 {
+  /* margin-left: 14.85pt; */
+  text-align: left;
+  }
+
+  .Chapter {
+  text-align: left;
+  /* margin-left: 14.85pt; */
+  font-size: 24.0pt;
+  font-family: Helvetica;
+  }
 
 
+  .Body b {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+
+  .Body span {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+
+  a:link {
+  color: #193F7D;
+  }
+
+  a:visited {
+  color: #193F7D;
+  }
+
+  a:hover {
+  color: blue;
+  }
+
+
+  /* The following are used in  or <div> tags for different kinds of titles:
+  in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
+
+  .Title1 {
+  font-size: 26.0pt;
+  font-weight: bold;
+  line-height: 2;
+  font-family: Helvetica;
+  }
+  
+   .Title2 {
+  font-size: 20.0pt;
+  font-weight: bold;
+  line-height: 2;
+  font-family: Helvetica;
+  }
+
+  .TitleBurgundyBig {
+  font-size: 22.0pt;
+  font-weight: bold;
+  /*   line-height: 110%; */
+  font-family: Helvetica;
+  color: #971930;
+  }
+  .TitleBluishSmall {
+  font-size: 18.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #262192;
+  }
+  .TitleGreenSmall {
+  font-size: 18.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #0A4803;
+  }
+
+  code {
+  font-family: monospace;
+  }
+
+  a {
+  text-decoration: none;
+  color: inherit;
+  }
+  span {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+  /* 
+  .animated-text {
+  animation: emphasis 2s infinite;
+  transition: font-weight 0.5s ease-in-out;
+  }
+
+  @keyframes emphasis {
+  0%, 100% {
+    font-weight: normal;
+  }
+  50% {
+    font-weight: bold;
+  }
+  }
+
+  .animated-text:hover {
+  font-weight: bold;
+  }
+  */
+
+  .animated-text {
+  animation: emphasis 1s infinite;
+  transition: color 0.5s ease-in-out;
+  }
+
+  @keyframes emphasis {
+  0%, 100% {
+    color: black; /* Starting color */
+    font-weight: bold; /* Keep text in bold */
+  }
+  50% {
+    color: #801E31; /* Midpoint color */
+    font-weight: bold; /* Keep text in bold */
+  }
+  }
+
+  .animated-text:hover {
+  color: blue; /* Hover color */
+  font-weight: bold; /* Keep text in bold */
+  font-size: 24px; /* Hover font size */
+  }
+  @keyframes blink-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+
+  .blink {
+  animation: blink-animation 2s linear infinite;
+  }
+  </style>
+  <script>
+    
+
+  const blinkingText = document.getElementById("blinking-text");
+
+  setTimeout(() => {
+    blinkingText.style.animationPlayState = "paused";
+  }, 3000);
+
+        window.onload = function() {
+            const buttons = document.querySelectorAll("button.copy-code-button");
+            buttons.forEach(function(button) {
+                button.textContent = "Copy";
+            });
+
+            const codeElements = document.querySelectorAll('code');
+            codeElements.forEach((code) => {
+                const container = document.createElement('div');
+                container.classList.add('code-container');
+
+                const textNode = document.createTextNode(code.textContent);
+                container.appendChild(textNode);
+
+                const button = document.createElement('button');
+                button.classList.add('copy-code-button');
+                button.textContent = 'Copy';
+                container.appendChild(button);
+
+                button.addEventListener('click', () => {
+                    if (code.textContent.match(/^\[pos=".*"\]$/)) {
+                        const stringToCopy = code.textContent;
+                        navigator.clipboard.writeText(stringToCopy);
+                    }
+                });
+
+                code.parentNode.replaceChild(container, code);
+            });
+        }
+
+
+
+
+  </script>
+  <title></title>
 </head>
+<body>
+  <div class="Title1">
+    List of available corpora
+  </div>
+  <div class="TitleBurgundyBig">
+    American English:
+  </div><br>
+  <div class="TitleBluishSmall">
+    Corpus 1 (COCA)
+  </div><br>
+  <a href="http://corptedig-glif.upf.edu/cqpweb/coca/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/coca/</a> (user: guest, pwd: guest)<br>
+  <strong>Complete tagset:</strong> <a href="http://www.natcorp.ox.ac.uk/docs/c7spec.html" target="_blank" rel="noopener noreferrer">http://www.natcorp.ox.ac.uk/docs/c7spec.html</a><br>
+  <br>
+  <span class="animated-text">Important note:</span> The tagset is almost identical to the one used by Sketchengine but in this corpus you need to use [pos=".*"] instead of [tag=".*"] in the CQL query and use lower case for the POS tags.<br>
+<div class="blink" id="blinking-text">Select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</div>
 
-<body  link="#000000" vlink=blue style='margin-left:65pt' style='word-wrap:break-word' style='margin-right:55pt'>
+  <p class="TitleGreenSmall">List of relevant tags:</p>
+  <strong>Nouns</strong> ➝ <code>[pos="n.*"]</code><br>
+  <strong>Verbs</strong> ➝ <code>[pos="vv.*"]</code><br>
+  <strong>Determiners</strong> ➝ <code>[pos="dd.*"]</code><br>
+  <strong>Articles</strong> ➝ <code>[pos="at.*"]</code><br>
+  <strong>Adjectives</strong> ➝ <code>[pos="j.*"]</code><br>
+  <strong>Prepositions</strong> ➝ <code>[pos="i.*"]</code><br>
+  <strong>Pronouns</strong> ➝ <code>[pos="pp.*"]</code><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[pos="rp"]</code> (relevant for phrasal verbs)
+  <p class="TitleBurgundyBig">British English:</p>
+  <div class="TitleBluishSmall">
+    Corpus 2 (BNC in Sketchengine)
+  </div><br>
+  <a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer">https://app.sketchengine.eu/</a> (choose British National Corpus - BNC) <br><strong>Complete tagset:</strong> <a href="https://www.sketchengine.eu/english-treetagger-pipeline-2/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-treetagger-pipeline-2/</a>
+  <p class="TitleGreenSmall">List of relevant tags:</p><strong>Nouns</strong> ➝ <code>[tag="N.*"]</code><br>
+  <strong>Verbs</strong> ➝ <code>[tag="VV.*"]</code><br>
+  <strong>Determiners</strong> (includes articles) ➝ <code>[tag="DT"]</code><br>
+  <strong>Adjectives</strong> ➝ <code>[tag="J.*"]</code><br>
+  <strong>Prepositions</strong> ➝ <code>[tag="IN.*"]</code><br>
+  <strong>Pronouns</strong> ➝ <code>[tag="PP"]</code><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[tag="RP"]</code> (relevant for phrasal verbs)<br>
+  <br>
+  <p class="TitleBluishSmall">
+    Corpus 3 (BNC UPF)
+  </p>
+ 
+  <a href="http://corptedig-glif.upf.edu/cqpweb/bnc/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/bnc/</a> (user: guest, pwd: guest)<br>
 
-<div class=WordSection1>
+  <strong>Complete tagset:</strong> <a href="https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/</a><br>
+  <br>
+<span class="animated-text">Important note:</span> the tagset used in this corpus is very similar (not completely identical, though) to the one used in Sketchengine. The most important difference is that to do searches you need to use the label 'pos' instead of 'tag'.<span class="blink" id="blinking-text"> Select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</span></p>
+  <p class="TitleGreenSmall">
+    List of relevant tags:
+  </p>
+  
+  <strong>Nouns</strong> ➝ <code>[pos="N.*"]</code><br>
+  <strong>Verbs</strong> ➝ <code>[pos="VV.*"]</code><br>
+  <strong>Determiners</strong> ➝ <code>[pos="DT0"]</code><br>
+  <strong>Articles</strong> ➝ <code>[pos="AT0"]</code><br>
+  <strong>Adjectives</strong> ➝ <code>[pos="J.*"]</code><br>
+  <strong>Prepositions</strong> ➝ <code>[pos="PR.*"]</code><br>
+  <strong>Pronouns</strong> ➝ <code>[pos="PN.*"]</code><br>
+  <strong>Particles</strong> (e.g. about, in, out, up) ➝ <code>[pos="RP"]</code> (relevant for phrasal verbs) 
 
-<p class=Chapter align=left style='margin-left:14.85pt;text-align:left'><a
-name="_Hlk135236592"><b><span style='font-size:24.0pt;font-family:
-Helvetica'>List of available corpora</span></b></a></p>
+<p class="TitleBurgundyBig">Some shortcuts to make your life easier: </p>
 
-<p class=Body style='margin-left:14.85pt'><b><span style='font-size:
-22.0pt;line-height:110%;font-family:Helvetica;color:#971930'><br>
-American English:</span></b><span style='font-family:Helvetica'>
+<div class="Title2">A Noun Phrase:</div>
+
+<p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+<code>[(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]</code>
+
+<p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
+<code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code>
+
+<p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+<code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code>
 
 <br>
-<br>
+<p class="Title2">A choice between two lexical categories (either one or the other):</p>
 
-<span style='font-size:18.0pt;line-height:110%;font-family:
-Helvetica;color:#262192'><b>Corpus 1</b><br>
+<p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+<code>[(pos="x.*")|(pos="x.*")]</code>
 
-</p>
+<p class="TitleBluishSmall">Corpus 2 (BNC sketchengine)</p>
+<code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code>
 
-<p class=Body style='margin-left:14.85pt'><a
-href="http://corptedig-glif.upf.edu/cqpweb/coca/" target="_blank" rel="noopener noreferrer"><span class=Hyperlink0><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>http://corptedig-glif.upf.edu/cqpweb/coca/</span></span></a><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>
-(user: guest, pwd: guest)<br>
-<br>
-</span><b><span style='font-size:14.0pt;line-height:110%;font-family:
-Helvetica;color:#2E7116'><span style='color:windowtext'>Complete tagset:</span></span></b><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica;
-color:#2E7116'><span style='color:windowtext'> </span></span><a
-href="http://www.natcorp.ox.ac.uk/docs/c7spec.html" target="_blank" rel="noopener noreferrer"><span class=Hyperlink0><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>http://www.natcorp.ox.ac.uk/docs/c7spec.html</span></span></a></p>
-
-<p class=Body style='margin-left:14.85pt'><b><span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'>Important note</span></b><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>:
-The tagset is almost identical to the one used by Sketchengine but in this
-corpus you need to use [pos=&quot;.*&quot;] instead of </span><span lang=PT
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>[</span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>tag=&quot;.*&quot;]
-in the CQL query and use lower case for the POS tags.<br>
-<br>
-</span><b><span  style='font-size:14.0pt;line-height:110%;
-font-family:Helvetica;color:#005702'>List of relevant tags</span></b><span  style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica'>:</span></p>
-
-<p class=Body style='margin-left:14.85pt'><span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><b>Nouns</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;n.*&quot;]</code></span><span
- style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Verbs</b></span> ➝ <span 
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'> <code>[pos=&quot;vv.*&quot;]</code><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:
-Helvetica'><b>Determiners</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;dd.*&quot;]</code><br>
-<b>Articles</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;at.*&quot;]</code><br>
-<b>Adjectives</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;j.*&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Prepositions</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;i.*&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Pronouns</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;pp.*&quot;]</code></span>
-<span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Particles</b> (e.g. about, in, out, up) </span><span style='font-size:
-14.0pt;line-height:110%;font-family:"Segoe UI Symbol",sans-serif'>➝ </span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;rp&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>
-(relevant for phrasal verbs)</span><span style='font-family:Helvetica'><br>
-<br>
-</span></p>
-
-<p class=Body style='margin-left:14.85pt'><b><span style='font-size:
-22.0pt;line-height:110%;font-family:Helvetica;color:#971930'>British English:</span></b></p>
-
-<p class=Body style='margin-left:14.85pt'><span style='font-size:
-18.0pt;line-height:110%;font-family:Helvetica'>
-</span><b><span style='font-size:18.0pt;line-height:110%;font-family:
-Helvetica;color:#262192'>Corpus 2<br>
-</span></b><span style='font-size:18.0pt;line-height:110%;
-font-family:Helvetica'><br>
-</span><a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer"><span class=Hyperlink0><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>https://app.sketchengine.eu/</span></span></a><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>
-(choose British National Corpus - BNC)<br>
-<br>
-</span><a name="_Hlk135236425"><b><span style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica;color:#2E7116'><span style='color:windowtext'>Complete
-tagset:</span></span></b></a><span style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica;color:#2E7116'><span style='color:windowtext'>
-</span></span><a
-href="https://www.sketchengine.eu/english-treetagger-pipeline-2/" target="_blank" rel="noopener noreferrer"><span
-class=Hyperlink0><span style='font-size:14.0pt;line-height:110%;
-font-family:Helvetica'>https://www.sketchengine.eu/english-treetagger-pipeline-2/</span></span></a></p>
-
-<p class=Body style='margin-left:14.85pt'><a name="_Hlk135236379"><b><span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica;color:#005702'>List of relevant tags</span></b></a><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>: </span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Nouns</b></span> ➝ <span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;N.*&quot;]</code><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Verbs</b></span> ➝ <span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;VV.*&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Determiners</b> (includes articles)</span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;DT&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Adjectives</b></span> ➝ <span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;J.*&quot;]</code><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Prepositions</b></span> ➝ <span style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica'><code>[tag=&quot;IN.*&quot;]</code><br>
-<b>Pronouns</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;PP&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Particles</b> (e.g. about, in, out, up) </span><span style='font-size:
-14.0pt;line-height:110%;font-family:"Segoe UI Symbol",sans-serif'>➝ </span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[tag=&quot;RP&quot;]</code>
-(relevant for phrasal verbs)</span><span style='font-size:18.0pt;
-line-height:110%;font-family:Helvetica'><br>
-<br>
-</span></p>
-
-<p class=Body style='margin-left:14.85pt'><a name="_Hlk135236649"><b><span
-style='font-size:18.0pt;line-height:110%;font-family:Helvetica;
-color:#262192'>Corpus 3</span></b></a><span style='font-size:18.0pt;
-line-height:110%;font-family:Helvetica'><br>
-<span class=Hyperlink0><br>
-</span></span><a href="http://corptedig-glif.upf.edu/cqpweb/bnc/" target="_blank" rel="noopener noreferrer"><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>http://corptedig-glif.upf.edu/cqpweb/bnc/</span></a><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'>
-(user: guest, pwd: guest)<br>
-<br>
-</span><b><span style='font-size:14.0pt;line-height:110%;font-family:
-Helvetica;color:#2E7116'><span style='color:windowtext'>Complete tagset:</span></span></b><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica;
-color:#2E7116'><span style='color:windowtext'> </span></span><a
-href="https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/" target="_blank" rel="noopener noreferrer"><span
-class=Hyperlink0><span style='font-size:14.0pt;line-height:110%;
-font-family:Helvetica'>https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/</span></span></a><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<br>
-</span></p>
-
-<p class=Body style='margin-left:14.85pt'><b><span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'>Important note:</span></b><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'> the
-tagset used in this corpus is very similar (not completely identical, though)
-to the one used in Sketchengine. The most important difference is that to do
-searches you need to use the label 'pos' instead of 'tag'. </span></p>
-
-<p class=Body style='margin-left:14.85pt'><b><span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica;color:#005702'>List of relevant tags</span></b><br><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'></span><br><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Nouns</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;N.*&quot;]</code><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Verbs</b></span> ➝ <span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;VV.*&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Determiners</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;DT0&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Articles</b></span> ➝ <span style='font-size:
-14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;AT0&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Adjectives</b></span> ➝ <span style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica'><code>[pos=&quot;J.*&quot;]</code><br>
-</span><span style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><b>Prepositions</b></span> ➝ <span style='font-size:14.0pt;
-line-height:110%;font-family:Helvetica'><code>[pos=&quot;PR.*&quot;]</code><br>
-<b>Pronouns</b></span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;PN.*&quot;]</code></span><span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Particles</b> (e.g. about, in, out, up)</span> ➝ <span
-style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;RP&quot;]</code>
-(relevant for phrasal verbs)</span></p>
-
-</div>
-
-<span style='font-size:14.0pt;line-height:110%;font-family:Helvetica;
-color:black'><br clear=all style='page-break-before:always'>
-</span>
-
-<div class=WordSection2>
-
-<p class=Chapter align=left style='margin-left:14.85pt;text-align:left'><span
-style='font-size:18.0pt'>&nbsp;</span></p>
-
-<p class=Chapter align=left style='margin-left:14.85pt;text-align:left'><span
-style='font-size:18.0pt'>&nbsp;</span></p>
-
-</div>
-
+<p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+<code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code>
 </body>
 
 </html>
