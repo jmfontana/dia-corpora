@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptation of CLAWS7 Taglist for the COCA corpus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adaptation of CLAWS7 Taglist for the COCA corpus</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tag</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>!</td>
+                <td>punctuation tag - exclamation mark</td>
+            </tr>
+            <tr>
+                <td>"</td>
+                <td>punctuation tag - quotation marks</td>
+            </tr>
+            <tr>
+                <td>(</td>
+                <td>punctuation tag - left bracket</td>
+            </tr>
+            <tr>
+                <td>)</td>
+                <td>punctuation tag - right bracket</td>
+            </tr>
+            <tr>
+                <td>,</td>
+                <td>punctuation tag - comma</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>punctuation tag - dash</td>
+            </tr>
+            <tr>
+                <td>-----</td>
+                <td>new sentence marker</td>
+            </tr>
+            <tr>
+                <td>.</td>
+                <td>punctuation tag - full-stop</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>punctuation tag - ellipsis</td>
+            </tr>
+            <tr>
+                <td>:</td>
+                <td>punctuation tag - colon</td>
+            </tr>
+            <tr>
+                <td>;</td>
+                <td>punctuation tag - semi-colon</td>
+            </tr>
+            <tr>
+                <td>?</td>
+                <td>punctuation tag - question-mark</td>
+            </tr>
+            <tr>
+                <td>appge</td>
+                <td>possessive pronoun, prenominal (my, your, our etc.)</td>
+            </tr>
+            <tr>
+                <td>at</td>
+                <td>article (the, no)</td>
+            </tr>
+            <tr>
+                <td>at1</td>
+                <td>singular article (a, an, every)</td>
+            </tr>
+            <tr>
+                <td>bcs</td>
+                <td>before-conjunction (in order (that), even (if etc.))</td>
+            </tr>
+            <tr>
+                <td>bto</td>
+                <td>before-infinitive marker (in order, so as (to))</td>
+            </tr>
+            <tr>
+                <td>cc</td>
+                <td>coordinating conjunction (and, or)</td>
+            </tr>
+            <tr>
+                <td>ccb</td>
+                <td>coordinating conjunction (but)</td>
+            </tr>
+            <tr>
+                <td>cs</td>
+                <td>subordinating conjunction (if, because, unless)</td>
+            </tr>
+            <tr>
+                <td>csa</td>
+                <td>as as a conjunction</td>
+            </tr>
+            <tr>
+                <td>csn</td>
+                <td>than as a conjunction</td>
+            </tr>
+            <tr>
+                <td>cst</td>
+                <td>that as a conjunction</td>
+            </tr>
+            <tr>
+                <td>csw</td>
+                <td>whether as a conjunction</td>
+            </tr>
+            <tr>
+                <td>da</td>
+                <td>after-determiner, capable of pronominal function (such, former, same)</td>
+            </tr>
+            <tr>
+                <td>da1</td>
+                <td>singular after-determiner (little, much)</td>
+            </tr>
+            <tr>
+                <td>da2</td>
+                <td>plural after-determiner (few, several, many)</td>
+            </tr>
+            <tr>
+                <td>dar</td>
+                <td>comparative after-determiner (more, less)</td>
+            </tr>
+            <tr>
+                <td>dat</td>
+                <td>superlative after-determiner (most, least)</td>
+            </tr>
+            <tr>
+                <td>db</td>
+                <td>before-determiner, capable of pronominal function (all, half)</td>
+            </tr>
+            <tr>
+                <td>db2</td>
+                <td>plural before-determiner, capable of pronominal function (both)</td>
+            </tr>
+            <tr>
+                <td>dd</td>
+                <td>determiner, capable of pronominal function (any, some)</td>
+            </tr>
+            <tr>
+                <td>dd1</td>
+                <td>singular determiner (this, that, another)</td>
+            </tr>
+            <tr>
+                <td>dd2</td>
+                <td>plural determiner (these, those)</td>
+            </tr>
+            <tr>
+                <td>ddq</td>
+                <td>wh-determiner (which, what)</td>
+            </tr>
+            <tr>
+                <td>ddqge</td>
+                <td>wh-determiner, genitive (whose)</td>
+            </tr>
+            <tr>
+                <td>ddqv</td>
+                <td>wh-ever determiner (whichever, whatever)</td>
+            </tr>
+            <tr>
+                <td>ex</td>
+                <td>existential there</td>
+            </tr>
+            <tr>
+                <td>fo</td>
+                <td>formula</td>
+            </tr>
+            <tr>
+                <td>fu</td>
+                <td>unclassified</td>
+            </tr>
+            <tr>
+                <td>fw</td>
+                <td>foreign word</td>
+            </tr>
+            <tr>
+                <td>ge</td>
+                <td>germanic genitive marker - (' or 's)</td>
+            </tr>
+            <tr>
+                <td>if</td>
+                <td>for as a preposition</td>
+            </tr>
+            <tr>
+                <td>ii</td>
+                <td>preposition</td>
+            </tr>
+            <tr>
+                <td>io</td>
+                <td>of as a preposition</td>
+            </tr>
+            <tr>
+                <td>iw</td>
+                <td>with; without as preposition</td>
+            </tr>
+            <tr>
+                <td>jj</td>
+                <td>general adjective</td>
+            </tr>
+            <tr>
+                <td>jjr</td>
+                <td>rgeneral comparative adjective (older, better, bigger)</td>
+            </tr>
+            <tr>
+                <td>jjt</td>
+                <td>general superlative adjective (oldest, best, biggest)</td>
+            </tr>
+            <tr>
+                <td>jk</td>
+                <td>adjective catenative (able in be able to; willing in be willing to)</td>
+            </tr>
+            <tr>
+                <td>mc</td>
+                <td>cardinal number neutral for number (two, three...)</td>
+            </tr>
+            <tr>
+                <td>mcge</td>
+                <td>genitive cardinal number, neutral for number (twos, 100's)</td>
+            </tr>
+            <tr>
+                <td>mcmc</td>
+                <td>hyphenated number (40-50, 1770-1827)</td>
+            </tr>
+            <tr>
+                <td>mc1</td>
+                <td>singular cardinal number (one)</td>
+            </tr>
+            <tr>
+                <td>mc2</td>
+                <td>plural cardinal number (tens, twenties)</td>
+            </tr>
+            <tr>
+                <td>md</td>
+                <td>ordinal number (first, 2nd, next, last)</td>
+            </tr>
+            <tr>
+                <td>mf</td>
+                <td>fraction (quarters, two-thirds)</td>
+            </tr>
+            <tr>
+                <td>nd1</td>
+                <td>singular noun of direction (north, southeast)</td>
+            </tr>
+            <tr>
+                <td>nn</td>
+                <td>common noun, neutral for number (sheep, cod)</td>
+            </tr>
+            <tr>
+                <td>nna</td>
+                <td>following noun of title (M.A.)</td>
+            </tr>
+            <tr>
+                <td>nnb</td>
+                <td>preceding noun of title (Mr, Prof)</td>
+            </tr>
+            <tr>
+                <td>nn1</td>
+                <td>singular common noun (book, girl)</td>
+            </tr>
+            <tr>
+                <td>nn2</td>
+                <td>plural common noun (books, girls)</td>
+            </tr>
+            <tr>
+                <td>nnl1</td>
+                <td>singular locative noun (street, Bay)</td>
+            </tr>
+            <tr>
+                <td>nnl2</td>
+                <td>plural locative noun (islands, roads)</td>
+            </tr>
+            <tr>
+                <td>nno</td>
+                <td>numeral noun, neutral for number (dozen, thousand)</td>
+            </tr>
+            <tr>
+                <td>nno2</td>
+                <td>plural numeral noun (hundreds, thousands)</td>
+            </tr>
+            <tr>
+                <td>nnt</td>
+                <td>temporal noun, neutral for number (no known examples)</td>
+            </tr>
+            <tr>
+                <td>nnt1</td>
+                <td>singular temporal noun (day, week, year)</td>
+            </tr>
+            <tr>
+                <td>nnt2</td>
+                <td>plural temporal noun (days, weeks, years)</td>
+            </tr>
+            <tr>
+                <td>nnu</td>
+                <td>unit of measurement, neutral for number (in., cc.)</td>
+            </tr>
+            <tr>
+                <td>nnu1</td>
+                <td>singular unit of measurement (inch, centimetre)</td>
+            </tr>
+            <tr>
+                <td>nnu2</td>
+                <td>plural unit of measurement (inches, centimetres)</td>
+            </tr>
+            <tr>
+                <td>np</td>
+                <td>proper noun, neutral for number (Phillipines, Mercedes)</td>
+            </tr>
+            <tr>
+                <td>np1</td>
+                <td>singular proper noun (London, Jane, Frederick)</td>
+            </tr>
+            <tr>
+                <td>np2</td>
+                <td>plural proper noun (Browns, Reagans, Koreas)</td>
+            </tr>
+            <tr>
+                <td>npd1</td>
+                <td>singular weekday noun (Sunday)</td>
+            </tr>
+            <tr>
+                <td>npd2</td>
+                <td>plural weekday noun (Sundays)</td>
+            </tr>
+            <tr>
+                <td>npm1</td>
+                <td>singular month noun (October)</td>
+            </tr>
+            <tr>
+                <td>npm2</td>
+                <td>plural month noun (Octobers)</td>
+            </tr>
+            <tr>
+                <td>pn</td>
+                <td>indefinite pronoun, neutral for number (none)</td>
+            </tr>
+            <tr>
+                <td>pn1</td>
+                <td>singular indefinite pronoun (one, everything, nobody)</td>
+            </tr>
+            <tr>
+                <td>pnqo</td>
+                <td>whom</td>
+            </tr>
+            <tr>
+                <td>pnqs</td>
+                <td>who</td>
+            </tr>
+            <tr>
+                <td>pnqv</td>
+                <td>whoever, whomever, whomsoever, whosoever</td>
+            </tr>
+            <tr>
+                <td>pnx1</td>
+                <td>reflexive indefinite pronoun (oneself)</td>
+            </tr>
+            <tr>
+                <td>pp</td>
+                <td>nominal possessive personal pronoun (mine, yours)</td>
+            </tr>
+            <tr>
+                <td>pph1</td>
+                <td>it</td>
+            </tr>
+            <tr>
+                <td>ppho1</td>
+                <td>him, her</td>
+            </tr>
+            <tr>
+                <td>ppho2</td>
+                <td>them</td>
+            </tr>
+            <tr>
+                <td>pphs1</td>
+                <td>She, she</td>
+            </tr>
+            <tr>
+                <td>pphs2</td>
+                <td>they</td>
+            </tr>
+            <tr>
+                <td>ppio1</td>
+                <td>me</td>
+            </tr>
+            <tr>
+                <td>ppio2</td>
+                <td>us</td>
+            </tr>
+            <tr>
+                <td>ppis1</td>
+                <td>I</td>
+            </tr>
+            <tr>
+                <td>ppis2</td>
+                <td>we</td>
+            </tr>
+            <tr>
+                <td>ppx1</td>
+                <td>singular reflexive personal pronoun (yourself, itself)</td>
+            </tr>
+            <tr>
+                <td>ppx2</td>
+                <td>plural reflexive personal pronoun (yourselves, ourselves)</td>
+            </tr>
+            <tr>
+                <td>ppy</td>
+                <td>you</td>
+            </tr>
+            <tr>
+                <td>ra</td>
+                <td>adverb, after nominal head (else, galore)</td>
+            </tr>
+            <tr>
+                <td>rex</td>
+                <td>adverb introducing appositional constructions (namely, viz, eg.)</td>
+            </tr>
+            <tr>
+                <td>rg</td>
+                <td>degree adverb (very, so, too)</td>
+            </tr>
+            <tr>
+                <td>rga</td>
+                <td>post-nominal/adverbial/adjectival degree adverb (indeed, enough)</td>
+            </tr>
+            <tr>
+                <td>rgq</td>
+                <td>wh- degree adverb (how)</td>
+            </tr>
+            <tr>
+                <td>rgqv</td>
+                <td>wh-ever degree adverb (however)</td>
+            </tr>
+            <tr>
+                <td>rgr</td>
+                <td>comparative degree adverb (more, less)</td>
+            </tr>
+            <tr>
+                <td>rgt</td>
+                <td>superlative degree adverb (most, least)</td>
+            </tr>
+            <tr>
+                <td>rl</td>
+                <td>locative adverb (alongside, forward)</td>
+            </tr>
+            <tr>
+                <td>rp</td>
+                <td>prep. adverb; particle (in, up, about)</td>
+            </tr>
+            <tr>
+                <td>rpk</td>
+                <td>prep. adv., catenative (about in be about to)</td>
+            </tr>
+            <tr>
+                <td>rr</td>
+                <td>general adverb (actually)</td>
+            </tr>
+            <tr>
+                <td>rrq</td>
+                <td>wh- general adverb (where, when, why, how)</td>
+            </tr>
+            <tr>
+                <td>rrqv</td>
+                <td>wh-ever general adverb (wherever, whenever)</td>
+            </tr>
+            <tr>
+                <td>rrr</td>
+                <td>comparative general adverb (better, longer)</td>
+            </tr>
+            <tr>
+                <td>rrt</td>
+                <td>superlative general adverb (best, longest)</td>
+            </tr>
+            <tr>
+                <td>rt</td>
+                <td>nominal adverb of time (now, tommorow)</td>
+            </tr>
+            <tr>
+                <td>to</td>
+                <td>infinitive marker (to)</td>
+            </tr>
+            <tr>
+                <td>uh</td>
+                <td>interjection (oh, yes, um)</td>
+            </tr>
+            <tr>
+                <td>vb0</td>
+                <td>be</td>
+            </tr>
+            <tr>
+                <td>vbdr</td>
+                <td>were</td>
+            </tr>
+            <tr>
+                <td>vbdz</td>
+                <td>was</td>
+            </tr>
+            <tr>
+                <td>vbg</td>
+                <td>being</td>
+            </tr>
+            <tr>
+                <td>vbm</td>
+                <td>am</td>
+            </tr>
+            <tr>
+                <td>vbn</td>
+                <td>been</td>
+            </tr>
+            <tr>
+                <td>vbr</td>
+                <td>are</td>
+            </tr>
+            <tr>
+                <td>vbz</td>
+                <td>is</td>
+            </tr>
+            <tr>
+                <td>vd0</td>
+                <td>do</td>
+            </tr>
+            <tr>
+                <td>vdd</td>
+                <td>did</td>
+            </tr>
+            <tr>
+                <td>vdg</td>
+                <td>doing</td>
+            </tr>
+            <tr>
+                <td>vdn</td>
+                <td>done</td>
+            </tr>
+            <tr>
+                <td>vdz</td>
+                <td>does</td>
+            </tr>
+            <tr>
+                <td>vh0</td>
+                <td>have</td>
+            </tr>
+            <tr>
+                <td>vhd</td>
+                <td>had (past tense)</td>
+            </tr>
+            <tr>
+                <td>vhg</td>
+                <td>having</td>
+            </tr>
+            <tr>
+                <td>vhn</td>
+                <td>had (past participle)</td>
+            </tr>
+            <tr>
+                <td>vhz</td>
+                <td>has</td>
+            </tr>
+            <tr>
+                <td>vm</td>
+                <td>modal auxiliary (can, will, would etc.)</td>
+            </tr>
+            <tr>
+                <td>vmk</td>
+                <td>modal catenative (ought, used)</td>
+            </tr>
+            <tr>
+                <td>vv0</td>
+                <td>base form of lexical verb (give, work etc.)</td>
+            </tr>
+            <tr>
+                <td>vvd</td>
+                <td>past tense form of lexical verb (gave, worked etc.)</td>
+            </tr>
+            <tr>
+                <td>vvg</td>
+                <td>-ing form of lexical verb (giving, working etc.)</td>
+            </tr>
+            <tr>
+                <td>vvn</td>
+                <td>past participle form of lexical verb (given, worked etc.)</td>
+            </tr>
+            <tr>
+                <td>vvz</td>
+                <td>-s form of lexical verb (gives, works etc.)</td>
+            </tr>
+            <tr>
+                <td>vvgk</td>
+                <td>-ing form in a catenative verb (going in be going to)</td>
+            </tr>
+            <tr>
+                <td>vvnk</td>
+                <td>past part. in a catenative verb (bound in be bound to)</td>
+            </tr>
+            <tr>
+                <td>xx</td>
+                <td>not, n't</td>
+            </tr>
+            <tr>
+                <td>zz1</td>
+                <td>singular letter of the alphabet (A, a, B, etc.)</td>
+            </tr>
+            <tr>
+                <td>zz2</td>
+                <td>plural letter of the alphabet (As, b's, etc.)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
