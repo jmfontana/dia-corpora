@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+  <style>
+        .code-container {
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        button.copy-code-button {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+  body {
+  margin: 25pt 85pt 65pt 95pt;
+  word-wrap: break-word;
+  font-family: Helvetica;
+  font-size: 12.0pt;
+  line-height: 1.5;
+  background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
+  }
+
+    background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
+
+  .reduspace {
+  margin-bottom: 0.1em;
+  }
+
+  .emf {
+  font-weight: bold;
+  font-size: 12.5pt;
+  }
+
+  .mono {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 12.0pt;
+}
+
+  
+  .WordSection1 {
+  /* margin-left: 14.85pt; */
+  text-align: left;
+  }
+
+  .Chapter {
+  text-align: left;
+  /* margin-left: 14.85pt; */
+  font-size: 24.0pt;
+  font-family: Helvetica;
+  }
+
+
+  .Body b {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+
+  .Body span {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+
+  a:link {
+  color: #193F7D;
+  }
+
+  a:visited {
+  color: #193F7D;
+  }
+
+  a:hover {
+  color: blue;
+  }
+
+
+  /* The following are used in  or <div> tags for different kinds of titles:
+  in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
+
+  .Title1 {
+  font-size: 22.0pt;
+  font-weight: bold;
+  line-height: 2;
+  font-family: Helvetica;
+  }
+  
+   .Title2 {
+  font-size: 18.0pt;
+  font-weight: bold;
+  line-height: 2;
+  font-family: Helvetica;
+  }
+
+  .TitleBurgundyBig {
+  font-size: 18.0pt;
+  font-weight: bold;
+  /*   line-height: 110%; */
+  font-family: Helvetica;
+  color: #971930;
+  }
+  .TitleBluishSmall {
+  font-size: 16.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #262192;
+  }
+  .TitleGreenSmall {
+  font-size: 16.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #0A4803;
+  }
+   .GreenSmall {
+  font-size: 12.0pt;
+  font-weight: bold;
+  line-height: 110%;
+  font-family: Helvetica;
+  color: #0A4803;
+  }
+      
+  ul.spaced-list {
+  line-height: 1.5; /* Adjust the value as needed */
+  }
+
+  code {
+  font-family: monospace;
+  }
+
+  a {
+  text-decoration: none;
+  color: inherit;
+  }
+  span {
+  font-size: 14.0pt;
+  line-height: 110%;
+  font-family: Helvetica;
+  }
+  /* 
+  .animated-text {
+  animation: emphasis 2s infinite;
+  transition: font-weight 0.5s ease-in-out;
+  }
+
+  @keyframes emphasis {
+  0%, 100% {
+    font-weight: normal;
+  }
+  50% {
+    font-weight: bold;
+  }
+  }
+
+  .animated-text:hover {
+  font-weight: bold;
+  }
+  */
+
+  .animated-text {
+  animation: emphasis 1s infinite;
+  transition: color 0.5s ease-in-out;
+  }
+
+  @keyframes emphasis {
+  0%, 100% {
+    color: black; /* Starting color */
+    font-weight: bold; /* Keep text in bold */
+  }
+  50% {
+    color: #801E31; /* Midpoint color */
+    font-weight: bold; /* Keep text in bold */
+  }
+  }
+
+  .animated-text:hover {
+  color: blue; /* Hover color */
+  font-weight: bold; /* Keep text in bold */
+  font-size: 24px; /* Hover font size */
+  }
+  @keyframes blink-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+
+  .blink {
+  animation: blink-animation 2s linear infinite;
+  }
+  
+
+/* 
+  hr {
+    color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }  
+ */
+
+
+ hr {
+    height: 2px;
+  /*   border-style: dashed; */
+    border-color: #3A2B69;
+  }
+  
+
+
+
+  </style>
+  <script>
+    
+
+  const blinkingText = document.getElementById("blinking-text");
+
+  setTimeout(() => {
+    blinkingText.style.animationPlayState = "paused";
+  }, 3000);
+
+window.onload = function() {
+    const buttons = document.querySelectorAll("button.copy-code-button");
+    buttons.forEach(function(button) {
+        button.textContent = "Copy";
+    });
+
+    const codeElements = document.querySelectorAll('code');
+    codeElements.forEach((code) => {
+        const container = document.createElement('div');
+        container.classList.add('code-container');
+
+        const textNode = document.createTextNode(code.textContent);
+        container.appendChild(textNode);
+
+        const button = document.createElement('button');
+        button.classList.add('copy-code-button');
+        button.textContent = 'Copy';
+        container.appendChild(button);
+
+        button.addEventListener('click', () => {
+            const stringToCopy = code.textContent;
+            navigator.clipboard.writeText(stringToCopy);
+        });
+
+        code.parentNode.replaceChild(container, code);
+    });
+}
+
+
+  </script>
+  <title>Corpora for Descripció i Anàlisi (Anglès)</title>
+</head>
+<body>
+  <div class="Title1">
+    Construct your searches with CQP syntax
+  </div>
+  <div class="TitleBurgundyBig">
+   A. Direct Object (DO)
+  </div>    
+      <p class="TitleBluishSmall">
+V - (Det) - (Adj) - N</p>
+    
+    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
+    <br>    
+    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
+    
+    <span class="mono"><code>[tag="VV.*"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
+    <br>
+ 
+      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+    
+    <span class="mono"><code>[pos="VV.*"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
+    <br>     
+<br>
+ <span class="emf">These can identify: </span>
+    <br>
+
+<ul class="spaced-list">
+  <li>A prepositional verb followed by a prepositional object (a.k.a <strong> <em> intransitive prepositional verb</em></strong> )</li>
+  <li>An intransitive verb followed by an adjunct</li>
+</ul>
+<hr>
+
+      <div class="TitleBurgundyBig">
+    V - NP - PP
+  </div>    
+      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+    
+    <span class="mono"><code>[pos="vv.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"])[pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
+    <br>    
+    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
+    
+    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])[tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
+    <br>
+
+      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+    
+    <span class="mono"><code>[pos="VV.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])[pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
+    <br>     
+     
+<br>
+ <span class="emf">These can identify: </span>
+    <br>
+
+<ul class="spaced-list">
+  <li>A verb with two complements: a direct object and an indirect object</li>
+  <li>A verb with two complements: a direct object and a prepositional complement (a.k.a <strong> <em>transitive prepositional verb</em></strong> )</li>
+  <li>A transitive verb followed by an adjunct</li>
+</ul>
+<hr>
+
+      <div class="TitleBurgundyBig">
+    V - NP - Part - PP
+  </div>    
+      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+    
+    <span class="mono"><code>[pos="vv.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"])[pos="rp"][pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
+    <br>    
+    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
+    
+    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])[tag="RP"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
+    <br>
+
+      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+    
+    <span class="mono"><code>[pos="VV.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])[pos="RP"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
+    <br>     
+     
+<br>
+ <span class="emf">These can identify: </span>
+    <br>
+
+<ul class="spaced-list">
+  <li>A <strong><em>transitive particle verb</em></strong> followed by an adjunct</li>
+  <li>A <strong><em>transitive prepositional particle verb</em></strong></li>
+</ul>
+<hr>
+
+      <div class="TitleBurgundyBig">
+    V - Part - PP
+  </div>    
+      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+    
+    <span class="mono"><code>[pos="vv.*"][pos="rp"][pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
+    <br>    
+    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
+    
+    <span class="mono"><code>[tag="VV.*"][tag="RP"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
+    <br>
+
+      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
+    
+    <span class="mono"><code>[pos="VV.*"][pos="RP"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
+    <br>     
+     
+<br>
+ <span class="emf">These can identify: </span>
+    <br>
+
+<ul class="spaced-list">
+  <li>A <strong><em>transitive particle verb</em></strong> followed by an adjunct</li>
+  <li>A <strong><em>transitive prepositional particle verbita</em></strong></li>
+</ul>
+<hr>
+
+</body>
+
+</html>
