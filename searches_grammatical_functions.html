@@ -257,111 +257,61 @@ window.onload = function() {
    A. Direct Object (DO)
   </div>    
       <p class="TitleBluishSmall">
-V - (Det) - (Adj) - N</p>
+V NP ➝ V - (Det) - (Adj) - N</p>
     
     <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>    
-    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
-    
-    <span class="mono"><code>[tag="VV.*"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>
- 
-      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-    
-    <span class="mono"><code>[pos="VV.*"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
-    <br>     
-<br>
- <span class="emf">These can identify: </span>
-    <br>
-
-<ul class="spaced-list">
-  <li>A prepositional verb followed by a prepositional object (a.k.a <strong> <em> intransitive prepositional verb</em></strong> )</li>
-  <li>An intransitive verb followed by an adjunct</li>
-</ul>
-<hr>
+    <br>      
+    <br> 
+<hr>    <br> 
 
       <div class="TitleBurgundyBig">
-    V - NP - PP
+  B. Indirect Object (IO)
   </div>    
-      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+      <p class="TitleBluishSmall">V NP PP ➝ V - (Det) - (Adj) - N - Prep - (Det) - (Adj) - N</p>
     
-    <span class="mono"><code>[pos="vv.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"])[pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
+    <span class="mono"><code>[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[(tag="IN.*")&(lemma="to")](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])</code></span>
+    <br>    <br>    
+<hr>    <br> 
+      <div class="TitleBurgundyBig">
+C. Subject Complement (SC)
+  </div>    
+      <p class="TitleBluishSmall">LinkV AdjP ➝ LinkV - Adj</p>
+    
+    <span class="mono"><code>[tag="V.*"][tag="J.*"]</code></span>
     <br>    
-    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
-    
-    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])[tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>
 
-      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-    
-    <span class="mono"><code>[pos="VV.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])[pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
-    <br>     
-     
-<br>
- <span class="emf">These can identify: </span>
-    <br>
-
-<ul class="spaced-list">
-  <li>A verb with two complements: a direct object and an indirect object</li>
-  <li>A verb with two complements: a direct object and a prepositional complement (a.k.a <strong> <em>transitive prepositional verb</em></strong> )</li>
-  <li>A transitive verb followed by an adjunct</li>
-</ul>
-<hr>
+<br> 
+<hr><br> 
 
       <div class="TitleBurgundyBig">
-    V - NP - Part - PP
+D. Object Complement (OC)
   </div>    
-      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+      <p class="TitleBluishSmall">V - NP - AdjP ➝ V - (Det) - (Adj) - N -  Adj</p>
     
-    <span class="mono"><code>[pos="vv.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"])[pos="rp"][pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
-    <br>    
-    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
-    
-    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])[tag="RP"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>
-
-      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-    
-    <span class="mono"><code>[pos="VV.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])[pos="RP"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
-    <br>     
-     
-<br>
- <span class="emf">These can identify: </span>
-    <br>
-
-<ul class="spaced-list">
-  <li>A <strong><em>transitive particle verb</em></strong> followed by an adjunct</li>
-  <li>A <strong><em>transitive prepositional particle verb</em></strong></li>
-</ul>
+    <span class="mono"><code>[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code></span>  
+    <br> 
+     <br>
 <hr>
-
-      <div class="TitleBurgundyBig">
-    V - Part - PP
+    <br> 
+    <div class="TitleBurgundyBig">
+E. Prepositional Object (PO)
   </div>    
-      <p class="TitleBluishSmall">Corpus 1 (COCA UPF)</p>
+      <p class="TitleBluishSmall">V PP ➝ V - Prep - (Det) - (Adj) - N -  Adj</p>
     
-    <span class="mono"><code>[pos="vv.*"][pos="rp"][pos="i.*"]([(pos="dd.*")|(pos="at.*")]{0,1}[pos="j.*"]{0,1}[pos="n.*"]|[pos="pp.*"]);</code></span>
-    <br>    
-    <p class="TitleBluishSmall">Corpus 2 (BNC in Sketchengine)</p>
-    
-    <span class="mono"><code>[tag="VV.*"][tag="RP"][tag="IN.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>
-
-      <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-    
-    <span class="mono"><code>[pos="VV.*"][pos="RP"][pos="PR.*"]([(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]|[pos="PN.*"])</code></span>
-    <br>     
-     
-<br>
- <span class="emf">These can identify: </span>
-    <br>
-
-<ul class="spaced-list">
-  <li>A <strong><em>transitive particle verb</em></strong> followed by an adjunct</li>
-  <li>A <strong><em>transitive prepositional particle verbita</em></strong></li>
-</ul>
+    <span class="mono"><code>[tag="VV.*"][tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>  
+    <br>  <br>
 <hr>
-
+    <br> 
+     <br> 
+    <div class="TitleBurgundyBig">
+F. Prepositional Complement (PC)
+  </div>    
+      <p class="TitleBluishSmall">V (NP) PP ➝ V - Prep - (Det) - (Adj) - N -  Adj</p>
+    
+    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]){0,1}[tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>  
+    <br>  <br>
+<hr>
+    <br> 
 </body>
 
 </html>
