@@ -1,146 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html"; charset="utf-8">
-  <style>
-        .code-container {
-            display: inline-block;
-            margin-left: 8px;
-        }
+    <head>
+        <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
+        <style>
+            .code-container {
+                display: inline-block;
+                margin-left: 8px;
+            }
 
-        button.copy-code-button {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 400;
-            margin-left: 8px;
-        }
-  body {
-  margin: 25pt 85pt 65pt 95pt;
-  word-wrap: break-word;
-  font-family: Helvetica;
-  font-size: 12.0pt;
-  line-height: 1.5;
-  background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
-  }
+            button.copy-code-button {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 400;
+                margin-left: 8px;
+            }
+            body {
+                margin: 25pt 85pt 65pt 95pt;
+                word-wrap: break-word;
+                font-family: Helvetica;
+                font-size: 12pt;
+                line-height: 1.5;
+                background-color: #f4f4f4; /* Set the background color to a nice, pleasant color */
+            }
 
-    background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
+            background-color: #f4f4f4; /* Set the background color to a nice, pleasant color */
 
-  .reduspace {
-  margin-bottom: 0.1em;
-  }
+            .reduspace {
+                margin-bottom: 0.1em;
+            }
 
-  .emf {
-  font-weight: bold;
-  font-size: 12.5pt;
-  }
+            .emf {
+                font-weight: bold;
+                font-size: 12.5pt;
+            }
 
-  .mono {
-  font-family: "DejaVu Sans Mono", monospace;
-  font-size: 12.0pt;
-}
+            .mono {
+                font-family: "DejaVu Sans Mono", monospace;
+                font-size: 12pt;
+            }
 
-  
-  .WordSection1 {
-  /* margin-left: 14.85pt; */
-  text-align: left;
-  }
+            .WordSection1 {
+                /* margin-left: 14.85pt; */
+                text-align: left;
+            }
 
-  .Chapter {
-  text-align: left;
-  /* margin-left: 14.85pt; */
-  font-size: 24.0pt;
-  font-family: Helvetica;
-  }
+            .Chapter {
+                text-align: left;
+                /* margin-left: 14.85pt; */
+                font-size: 24pt;
+                font-family: Helvetica;
+            }
 
+            .Body b {
+                font-size: 14pt;
+                line-height: 110%;
+                font-family: Helvetica;
+            }
 
-  .Body b {
-  font-size: 14.0pt;
-  line-height: 110%;
-  font-family: Helvetica;
-  }
+            .Body span {
+                font-size: 14pt;
+                line-height: 110%;
+                font-family: Helvetica;
+            }
 
-  .Body span {
-  font-size: 14.0pt;
-  line-height: 110%;
-  font-family: Helvetica;
-  }
+            a:link {
+                color: #193f7d;
+            }
 
-  a:link {
-  color: #193F7D;
-  }
+            a:visited {
+                color: #193f7d;
+            }
 
-  a:visited {
-  color: #193F7D;
-  }
+            a:hover {
+                color: blue;
+            }
 
-  a:hover {
-  color: blue;
-  }
-
-
-  /* The following are used in  or <div> tags for different kinds of titles:
+            /* The following are used in  or <div> tags for different kinds of titles:
   in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
 
-  .Title1 {
-  font-size: 22.0pt;
-  font-weight: bold;
-  line-height: 2;
-  font-family: Helvetica;
-  }
-  
-   .Title2 {
-  font-size: 18.0pt;
-  font-weight: bold;
-  line-height: 2;
-  font-family: Helvetica;
-  }
+            .Title1 {
+                font-size: 22pt;
+                font-weight: bold;
+                line-height: 2;
+                font-family: Helvetica;
+            }
 
-  .TitleBurgundyBig {
-  font-size: 18.0pt;
-  font-weight: bold;
-  /*   line-height: 110%; */
-  font-family: Helvetica;
-  color: #971930;
-  }
-  .TitleBluishSmall {
-  font-size: 16.0pt;
-  font-weight: bold;
-  line-height: 110%;
-  font-family: Helvetica;
-  color: #262192;
-  }
-  .TitleGreenSmall {
-  font-size: 16.0pt;
-  font-weight: bold;
-  line-height: 110%;
-  font-family: Helvetica;
-  color: #0A4803;
-  }
-   .GreenSmall {
-  font-size: 12.0pt;
-  font-weight: bold;
-  line-height: 110%;
-  font-family: Helvetica;
-  color: #0A4803;
-  }
-      
-  ul.spaced-list {
-  line-height: 1.5; /* Adjust the value as needed */
-  }
+            .Title2 {
+                font-size: 18pt;
+                font-weight: bold;
+                line-height: 2;
+                font-family: Helvetica;
+            }
 
-  code {
-  font-family: monospace;
-  }
+            .TitleBurgundyBig {
+                font-size: 18pt;
+                font-weight: bold;
+                /*   line-height: 110%; */
+                font-family: Helvetica;
+                color: #971930;
+            }
+            .TitleBluishSmall {
+                font-size: 16pt;
+                font-weight: bold;
+                line-height: 110%;
+                font-family: Helvetica;
+                color: #262192;
+            }
+            .TitleGreenSmall {
+                font-size: 16pt;
+                font-weight: bold;
+                line-height: 110%;
+                font-family: Helvetica;
+                color: #0a4803;
+            }
+            .GreenSmall {
+                font-size: 12pt;
+                font-weight: bold;
+                line-height: 110%;
+                font-family: Helvetica;
+                color: #0a4803;
+            }
 
-  a {
-  text-decoration: none;
-  color: inherit;
-  }
-  span {
-  font-size: 14.0pt;
-  line-height: 110%;
-  font-family: Helvetica;
-  }
-  /* 
+            ul.spaced-list {
+                line-height: 1.5; /* Adjust the value as needed */
+            }
+
+            code {
+                font-family: monospace;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            span {
+                font-size: 14pt;
+                line-height: 110%;
+                font-family: Helvetica;
+            }
+            /* 
   .animated-text {
   animation: emphasis 2s infinite;
   transition: font-weight 0.5s ease-in-out;
@@ -160,169 +157,191 @@
   }
   */
 
-  .animated-text {
-  animation: emphasis 1s infinite;
-  transition: color 0.5s ease-in-out;
-  }
+            .animated-text {
+                animation: emphasis 1s infinite;
+                transition: color 0.5s ease-in-out;
+            }
 
-  @keyframes emphasis {
-  0%, 100% {
-    color: black; /* Starting color */
-    font-weight: bold; /* Keep text in bold */
-  }
-  50% {
-    color: #801E31; /* Midpoint color */
-    font-weight: bold; /* Keep text in bold */
-  }
-  }
+            @keyframes emphasis {
+                0%,
+                100% {
+                    color: black; /* Starting color */
+                    font-weight: bold; /* Keep text in bold */
+                }
+                50% {
+                    color: #801e31; /* Midpoint color */
+                    font-weight: bold; /* Keep text in bold */
+                }
+            }
 
-  .animated-text:hover {
-  color: blue; /* Hover color */
-  font-weight: bold; /* Keep text in bold */
-  font-size: 24px; /* Hover font size */
-  }
-  @keyframes blink-animation {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-  }
+            .animated-text:hover {
+                color: blue; /* Hover color */
+                font-weight: bold; /* Keep text in bold */
+                font-size: 24px; /* Hover font size */
+            }
+            @keyframes blink-animation {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
 
-  .blink {
-  animation: blink-animation 2s linear infinite;
-  }
-  
+            .blink {
+                animation: blink-animation 2s linear infinite;
+            }
 
-/* 
+            /* 
   hr {
     color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }  
  */
 
+            hr {
+                height: 2px;
+                /*   border-style: dashed; */
+                border-color: #3a2b69;
+            }
+        </style>
+        <script>
+            const blinkingText = document.getElementById("blinking-text");
 
- hr {
-    height: 2px;
-  /*   border-style: dashed; */
-    border-color: #3A2B69;
-  }
-  
+            setTimeout(() => {
+                blinkingText.style.animationPlayState = "paused";
+            }, 3000);
 
+            window.onload = function () {
+                const buttons = document.querySelectorAll(
+                    "button.copy-code-button"
+                );
+                buttons.forEach(function (button) {
+                    button.textContent = "Copy";
+                });
 
+                const codeElements = document.querySelectorAll("code");
+                codeElements.forEach((code) => {
+                    const container = document.createElement("div");
+                    container.classList.add("code-container");
 
-  </style>
-  <script>
-    
+                    const textNode = document.createTextNode(code.textContent);
+                    container.appendChild(textNode);
 
-  const blinkingText = document.getElementById("blinking-text");
+                    const button = document.createElement("button");
+                    button.classList.add("copy-code-button");
+                    button.textContent = "Copy";
+                    container.appendChild(button);
 
-  setTimeout(() => {
-    blinkingText.style.animationPlayState = "paused";
-  }, 3000);
+                    button.addEventListener("click", () => {
+                        const stringToCopy = code.textContent;
+                        navigator.clipboard.writeText(stringToCopy);
+                    });
 
-window.onload = function() {
-    const buttons = document.querySelectorAll("button.copy-code-button");
-    buttons.forEach(function(button) {
-        button.textContent = "Copy";
-    });
+                    code.parentNode.replaceChild(container, code);
+                });
+            };
+        </script>
+        <title>Corpora for Descripció i Anàlisi (Anglès)</title>
+    </head>
+    <body>
+        <div class="Title1">Construct your searches with CQP syntax</div>
+        <div class="TitleBurgundyBig">A. Direct Object (DO)</div>
+        <p class="TitleBluishSmall">V NP ➝ V - (Det) - (Adj) - N</p>
 
-    const codeElements = document.querySelectorAll('code');
-    codeElements.forEach((code) => {
-        const container = document.createElement('div');
-        container.classList.add('code-container');
+        <span class="mono"
+            ><code
+                >[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
 
-        const textNode = document.createTextNode(code.textContent);
-        container.appendChild(textNode);
+        <div class="TitleBurgundyBig">B. Indirect Object (IO)</div>
+        <p class="TitleBluishSmall">
+            V NP PP ➝ V - (Det) - (Adj) - N - Prep - (Det) - (Adj) - N
+        </p>
 
-        const button = document.createElement('button');
-        button.classList.add('copy-code-button');
-        button.textContent = 'Copy';
-        container.appendChild(button);
+        <span class="mono">
+            <code
+                >[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[(tag="IN.*")&(lemma="to")](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+        <div class="TitleBurgundyBig">C. Subject Complement (SC)</div>
+        <p class="TitleBluishSmall">LinkV AdjP ➝ LinkV - Adj</p>
 
-        button.addEventListener('click', () => {
-            const stringToCopy = code.textContent;
-            navigator.clipboard.writeText(stringToCopy);
-        });
+        <span class="mono"><code>[tag="V.*"][tag="J.*"]</code></span>
+        <br />
 
-        code.parentNode.replaceChild(container, code);
-    });
-}
+        <br />
+        <hr />
+        <br />
 
+        <div class="TitleBurgundyBig">D. Object Complement (OC)</div>
+        <p class="TitleBluishSmall">
+            V - NP - AdjP ➝ V - (Det) - (Adj) - N - Adj
+        </p>
 
-  </script>
-  <title>Corpora for Descripció i Anàlisi (Anglès)</title>
-</head>
-<body>
-  <div class="Title1">
-    Construct your searches with CQP syntax
-  </div>
-  <div class="TitleBurgundyBig">
-   A. Direct Object (DO)
-  </div>    
-      <p class="TitleBluishSmall">
-V NP ➝ V - (Det) - (Adj) - N</p>
-    
-    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]|[tag="PP"])</code></span>
-    <br>      
-    <br> 
-<hr>    <br> 
+        <span class="mono"
+            ><code
+                >[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+        <div class="TitleBurgundyBig">E. Prepositional Object (PO)</div>
+        <p class="TitleBluishSmall">
+            V PP ➝ V - Prep - (Det) - (Adj) - N - Adj
+        </p>
 
-      <div class="TitleBurgundyBig">
-  B. Indirect Object (IO)
-  </div>    
-      <p class="TitleBluishSmall">V NP PP ➝ V - (Det) - (Adj) - N - Prep - (Det) - (Adj) - N</p>
-    
-    <span class="mono"><code>[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[(tag="IN.*")&(lemma="to")](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])</code></span>
-    <br>    <br>    
-<hr>    <br> 
-      <div class="TitleBurgundyBig">
-C. Subject Complement (SC)
-  </div>    
-      <p class="TitleBluishSmall">LinkV AdjP ➝ LinkV - Adj</p>
-    
-    <span class="mono"><code>[tag="V.*"][tag="J.*"]</code></span>
-    <br>    
+        <span class="mono"
+            ><code
+                >[tag="VV.*"][tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+        <div class="TitleBurgundyBig">F. Prepositional Complement (PC)</div>
+        <p class="TitleBluishSmall">
+            V (NP) PP ➝ V - Prep - (Det) - (Adj) - N - Adj
+        </p>
 
-<br> 
-<hr><br> 
+        <span class="mono"
+            ><code
+                >[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]){0,1}[tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+        <br />
+        <div class="TitleBurgundyBig">Transitive Phrasal Verb</div>
+        <p class="TitleBluishSmall">
+            V Part NP ➝ V - Part - (Det) - (Adj) - N - Adj
+        </p>
 
-      <div class="TitleBurgundyBig">
-D. Object Complement (OC)
-  </div>    
-      <p class="TitleBluishSmall">V - NP - AdjP ➝ V - (Det) - (Adj) - N -  Adj</p>
-    
-    <span class="mono"><code>[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code></span>  
-    <br> 
-     <br>
-<hr>
-    <br> 
-    <div class="TitleBurgundyBig">
-E. Prepositional Object (PO)
-  </div>    
-      <p class="TitleBluishSmall">V PP ➝ V - Prep - (Det) - (Adj) - N -  Adj</p>
-    
-    <span class="mono"><code>[tag="VV.*"][tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>  
-    <br>  <br>
-<hr>
-    <br> 
-     <br> 
-    <div class="TitleBurgundyBig">
-F. Prepositional Complement (PC)
-  </div>    
-      <p class="TitleBluishSmall">V (NP) PP ➝ V - Prep - (Det) - (Adj) - N -  Adj</p>
-    
-    <span class="mono"><code>[tag="VV.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]){0,1}[tag="IN.*"][tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>  
-    <br>  <br>
-<hr>
-    <br> 
-       <br> 
-     <br> 
-    <div class="TitleBurgundyBig">
-Transitive Phrasal Verb
-  </div>    
-      <p class="TitleBluishSmall">V Part NP ➝  V - Part - (Det) - (Adj) - N -  Adj</p>
-    
-    <span class="mono"><code>[tag="VV.*"][tag="RP.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]){0,1}[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>  
-    <br>  <br>
-<hr>
-    <br> 
-</body>
-
+        <span class="mono"
+            ><code
+                >[tag="VV.*"][tag="RP.*"]([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]){0,1}[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code
+            ></span
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+    </body>
 </html>
