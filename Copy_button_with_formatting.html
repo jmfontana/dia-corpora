@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.code-block {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+}
+
+.bracket,
+.brace,
+.parenthesis,
+.pipe {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-weight: bold;
+}
+
+.bracket {
+  color: green;
+}
+
+.brace {
+  color: blue;
+}
+
+.parenthesis {
+  color: #970829;
+  font-weight: bolder;
+}
+
+.pipe {
+  color: purple;
+}
+
+.copy-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="code-block">
+  <span class="bracket">[</span><span class="tag">tag="VV.*"</span><span class="bracket">]</span>
+  <span class="parenthesis">(</span>
+    <span class="parenthesis">(</span><span class="tag">tag="DT"</span><span class="brace">{</span>0,1<span class="brace">}</span><span class="tag">tag="J.*"</span><span class="brace">{</span>0,1<span class="brace">}</span><span class="tag">tag="N.*"</span><span class="parenthesis">)</span>
+    <span class="pipe">|</span>
+    <span class="bracket">[</span><span class="tag">tag="PP"</span><span class="bracket">]</span>
+  <span class="parenthesis">)</span>
+  <span class="bracket">[</span><span class="tag">tag="R.*"</span><span class="bracket">]</span><span class="brace">{</span>0,1<span class="brace">}</span><span class="bracket">[</span><span class="tag">tag="J.*"</span><span class="bracket">]</span>
+</div>
+
+<button class="copy-button" onclick="copyCode()">Click this button to copy code</button>
+
+<script>
+function copyCode() {
+  var codeBlock = document.querySelector('.code-block');
+  var range = document.createRange();
+  range.selectNode(codeBlock);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Code copied to clipboard!");
+}
+</script>
+
+</body>
+</html>

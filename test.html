@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Reset default margins and paddings */
+pre, code {
+  margin: 0;
+  padding: 0;
+}
+
+.code-container {
+  background-color: black;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Added space between blocks */
+  margin-top: 15px;
+  overflow-x: auto; /* Add horizontal scrollbar */
+  padding: 10px; /* Add padding to the container for spacing */
+}
+
+pre {
+  background-color: black;
+  color: white;
+  font-family: "Courier New", monospace;
+  white-space: pre; /* Maintain preformatted text */
+  margin: 0; /* Remove margin to avoid extra space */
+  padding: 0; /* Remove padding to avoid extra space */
+  display: inline-block; /* Ensure inline-block for horizontal scrolling */
+}
+
+code {
+  padding-left: 0; /* Ensure no extra padding on the left */
+}
+
+.bracket {
+  color: green;
+}
+
+.brace {
+  color: blue;
+}
+
+.parenthesis {
+  color: #970829;
+  font-weight: bolder;
+}
+
+.pipe {
+  color: purple;
+}
+
+.tag {
+  color: orange; /* Example color for tags */
+}
+
+.copy-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: inherit;
+  border-radius: 15px;
+  background-color: #09519f;
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="code-container">
+  <pre>
+    <code class="code-block">[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code>
+  </pre>
+</div>
+<button class="copy-button">Click this button to copy code</button>
+
+<div class="code-container">
+  <pre>
+    <code class="code-block">[tag="NN.*"](([tag="JJ"]{0,1}[tag="RB.*"]{0,1}[tag="VB.*"])|[tag="PRP"])[tag="RB.*"]{0,1}[tag="VB.*"]</code>
+  </pre>
+</div>
+<button class="copy-button">Click this button to copy code</button>
+
+<script>
+function highlightSyntax(codeBlock) {
+  let html = "";
+  const code = codeBlock.textContent;
+
+  for (let i = 0; i < code.length; i++) {
+    let char = code[i];
+    let className = "";
+
+    switch (char) {
+      case '[':
+      case ']':
+        className = "bracket";
+        break;
+      case '(':
+      case ')':
+        className = "parenthesis";
+        break;
+      case '{':
+      case '}':
+        className = "brace";
+        break;
+      case '|':
+        className = "pipe";
+        break;
+      default:
+        if (code.substring(i).startsWith('tag="')) {
+          className = "tag";
+          let endIndex = code.indexOf('"', i + 5); // Find closing quote
+          char = code.substring(i, endIndex + 1); // Include the entire tag
+          i = endIndex; // Move i to the end of the tag
+        }
+    }
+
+    html += `<span class="${className}">${char}</span>`;
+  }
+
+  codeBlock.innerHTML = html;
+}
+
+function copyCode(event) {
+  var button = event.target;
+  var codeBlock = button.previousElementSibling.querySelector('code');
+  var plainText = codeBlock.textContent; // Get plain text content
+
+  // Create a temporary textarea element to hold the text
+  var tempTextarea = document.createElement('textarea');
+  tempTextarea.value = plainText;
+  document.body.appendChild(tempTextarea);
+  tempTextarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempTextarea);
+  alert("Code copied to clipboard!");
+}
+
+// Call the highlightSyntax function after the page loads
+window.onload = function() {
+  var codeBlocks = document.querySelectorAll('.code-block');
+  codeBlocks.forEach(highlightSyntax);
+
+  var copyButtons = document.querySelectorAll('.copy-button');
+  copyButtons.forEach(function(button) {
+    button.addEventListener('click', copyCode);
+  });
+};
+</script>
+
+</body>
+</html>

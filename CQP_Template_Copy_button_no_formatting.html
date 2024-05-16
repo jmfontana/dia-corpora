@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
+		<style>
+			.code-block {
+				background-color: black;
+				color: white;
+				padding: 25px;
+				font-family: "Courier New", monospace;
+				display: inline-block;
+			}
+
+
+			.bracket {
+				color: green;
+			}
+
+			.brace {
+				color: blue;
+			}
+
+			.parenthesis {
+				color: #970829;
+				font-weight: bolder;
+			}
+
+			.pipe {
+				color: purple;
+			}
+
+			.tag {
+				color: orange; /* Example color for tags */
+			}
+
+			.copy-button {
+				margin-top: 10px;
+				padding: 5px 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: #007bff;
+				color: white;
+				cursor: pointer;
+			}			
+			body {
+				margin: 25pt 85pt 65pt 95pt;
+				word-wrap: break-word;
+				font-family: Helvetica;
+				font-size: 12pt;
+				line-height: 1.5;
+				background-color: #f4f4f4; /* Set the background color to a nice, pleasant color */
+			}
+
+			.center-text {
+				text-align: center !important;
+			}
+
+			a:link {
+				color: #193f7d;
+			}
+
+			a:visited {
+				color: #193f7d;
+			}
+
+			a:hover {
+				color: blue;
+			}
+
+			/* The following are used in  or <div> tags for different kinds of titles:
+  in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
+
+			.Title1 {
+				font-size: 22pt;
+				font-weight: bold;
+				line-height: 2;
+				font-family: Helvetica;
+			}
+
+			.Title2 {
+				font-size: 18pt;
+				font-weight: bold;
+				line-height: 2;
+				font-family: Helvetica;
+			}
+
+			.TitleBurgundyBig {
+				font-size: 18pt;
+				font-weight: bold;
+				/*   line-height: 110%; */
+				font-family: Helvetica;
+				color: #971930;
+			}
+			.TitleBluishSmall {
+				font-size: 16pt;
+				font-weight: bold;
+				line-height: 110%;
+				font-family: Helvetica;
+				color: #262192;
+			}
+			.TitleGreenSmall {
+				font-size: 16pt;
+				font-weight: bold;
+				line-height: 110%;
+				font-family: Helvetica;
+				color: #0a4803;
+			}
+			.GreenSmall {
+				font-size: 12pt;
+				font-weight: bold;
+				line-height: 110%;
+				font-family: Helvetica;
+				color: #0a4803;
+			}
+
+		</style>
+	</head>
+	<body>
+		<code class="code-block" id="codeBlock">[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code>
+
+		<button class="copy-button" onclick="copyCode()">
+			Click this button to copy code
+		</button>
+
+<script>
+function highlightSyntax(codeBlock) {
+  let html = "";
+  const code = codeBlock.textContent;
+
+  for (let i = 0; i < code.length; i++) {
+    let char = code[i];
+    let className = "";
+
+    switch (char) {
+      case '[':
+      case ']':
+        className = "bracket";
+        break;
+      case '(':
+      case ')':
+        className = "parenthesis";
+        break;
+      case '{':
+      case '}':
+        className = "brace";
+        break;
+      case '|':
+        className = "pipe";
+        break;
+      default:
+        if (code.substring(i).startsWith('tag="')) {
+          className = "tag";
+          let endIndex = code.indexOf('"', i + 5); // Find closing quote
+          char = code.substring(i, endIndex + 1); // Include the entire tag
+          i = endIndex; // Move i to the end of the tag
+        }
+    }
+
+    html += `<span class="${className}">${char}</span>`;
+  }
+
+  codeBlock.innerHTML = html;
+}
+
+function copyCode() {
+  var codeBlock = document.getElementById('codeBlock');
+  var plainText = codeBlock.textContent; // Get plain text content
+
+  // Create a temporary textarea element to hold the text
+  var tempTextarea = document.createElement('textarea');
+  tempTextarea.value = plainText;
+  document.body.appendChild(tempTextarea);
+  tempTextarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempTextarea);
+  alert("Code copied to clipboard!");
+}
+
+// Call the highlightSyntax function after the page loads
+window.onload = function() {
+  var codeBlock = document.getElementById('codeBlock');
+  highlightSyntax(codeBlock);
+};
+</script>
+	</body>
+</html>
