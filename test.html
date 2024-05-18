@@ -21,11 +21,15 @@ pre {
   background-color: black;
   color: white;
   font-family: "Courier New", monospace;
+  font-size: 12pt;
   white-space: pre; /* Maintain preformatted text */
   margin: 0; /* Remove margin to avoid extra space */
   padding: 0; /* Remove padding to avoid extra space */
   display: inline-block; /* Ensure inline-block for horizontal scrolling */
 }
+	body {
+  font-size: 12pt;
+	}
 
 code {
   padding-left: 0; /* Ensure no extra padding on the left */
@@ -61,6 +65,7 @@ code {
   color: white;
   cursor: pointer;
   display: block;
+  font-size: 8pt;
 }
 </style>
 </head>
@@ -71,14 +76,14 @@ code {
     <code class="code-block">[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|[tag="PP"])[tag="R.*"]{0,1}[tag="J.*"]</code>
   </pre>
 </div>
-<button class="copy-button">Click this button to copy code</button>
+<button class="copy-button">Click this button to copy query to clipboard</button>
 
 <div class="code-container">
   <pre>
     <code class="code-block">[tag="NN.*"](([tag="JJ"]{0,1}[tag="RB.*"]{0,1}[tag="VB.*"])|[tag="PRP"])[tag="RB.*"]{0,1}[tag="VB.*"]</code>
   </pre>
 </div>
-<button class="copy-button">Click this button to copy code</button>
+<button class="copy-button">Copy query</button>
 	<br />
 	Second test to see size of fonts.  
 
