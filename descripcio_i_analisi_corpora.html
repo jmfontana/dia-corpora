@@ -3,16 +3,16 @@
 <head>
   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
   <style>
-        .code-container {
-            display: inline-block;
-            margin-left: 8px;
-        }
+		.code-container {
+			display: inline-block;
+			margin-left: 8px;
+		}
 
-        button.copy-code-button {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 400;
-            margin-left: 8px;
-        }
+		button.copy-code-button {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			margin-left: 8px;
+		}
   body {
   margin: 25pt 85pt 65pt 95pt;
   word-wrap: break-word;
@@ -22,7 +22,7 @@
   background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
   }
 
-    background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
+	background-color: #F4F4F4; /* Set the background color to a nice, pleasant color */
 
   .reduspace {
   margin-bottom: 0.1em;
@@ -38,7 +38,7 @@
   font-size: 12.0pt;
 }
 
-  
+
   .WordSection1 {
   /* margin-left: 14.85pt; */
   text-align: left;
@@ -86,7 +86,7 @@
   line-height: 2;
   font-family: Helvetica;
   }
-  
+
    .Title2 {
   font-size: 18.0pt;
   font-weight: bold;
@@ -136,7 +136,7 @@
   line-height: 110%;
   font-family: Helvetica;
   }
-  /* 
+  /*
   .animated-text {
   animation: emphasis 2s infinite;
   transition: font-weight 0.5s ease-in-out;
@@ -144,10 +144,10 @@
 
   @keyframes emphasis {
   0%, 100% {
-    font-weight: normal;
+	font-weight: normal;
   }
   50% {
-    font-weight: bold;
+	font-weight: bold;
   }
   }
 
@@ -163,12 +163,12 @@
 
   @keyframes emphasis {
   0%, 100% {
-    color: black; /* Starting color */
-    font-weight: bold; /* Keep text in bold */
+	color: black; /* Starting color */
+	font-weight: bold; /* Keep text in bold */
   }
   50% {
-    color: #801E31; /* Midpoint color */
-    font-weight: bold; /* Keep text in bold */
+	color: #801E31; /* Midpoint color */
+	font-weight: bold; /* Keep text in bold */
   }
   }
 
@@ -186,59 +186,59 @@
   .blink {
   animation: blink-animation 2s linear infinite;
   }
-  
 
-/* 
+
+/*
   hr {
-    color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }  
+	color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }
  */
 
 
  hr {
-    height: 2px;
+	height: 2px;
   /*   border-style: dashed; */
-    border-color: #3A2B69;
+	border-color: #3A2B69;
   }
-  
+
 
 
 
   </style>
   <script>
-    
+
 
   const blinkingText = document.getElementById("blinking-text");
 
   setTimeout(() => {
-    blinkingText.style.animationPlayState = "paused";
+	blinkingText.style.animationPlayState = "paused";
   }, 3000);
 
 window.onload = function() {
-    const buttons = document.querySelectorAll("button.copy-code-button");
-    buttons.forEach(function(button) {
-        button.textContent = "Copy";
-    });
+	const buttons = document.querySelectorAll("button.copy-code-button");
+	buttons.forEach(function(button) {
+		button.textContent = "Copy";
+	});
 
-    const codeElements = document.querySelectorAll('code');
-    codeElements.forEach((code) => {
-        const container = document.createElement('div');
-        container.classList.add('code-container');
+	const codeElements = document.querySelectorAll('code');
+	codeElements.forEach((code) => {
+		const container = document.createElement('div');
+		container.classList.add('code-container');
 
-        const textNode = document.createTextNode(code.textContent);
-        container.appendChild(textNode);
+		const textNode = document.createTextNode(code.textContent);
+		container.appendChild(textNode);
 
-        const button = document.createElement('button');
-        button.classList.add('copy-code-button');
-        button.textContent = 'Copy';
-        container.appendChild(button);
+		const button = document.createElement('button');
+		button.classList.add('copy-code-button');
+		button.textContent = 'Copy';
+		container.appendChild(button);
 
-        button.addEventListener('click', () => {
-            const stringToCopy = code.textContent;
-            navigator.clipboard.writeText(stringToCopy);
-        });
+		button.addEventListener('click', () => {
+			const stringToCopy = code.textContent;
+			navigator.clipboard.writeText(stringToCopy);
+		});
 
-        code.parentNode.replaceChild(container, code);
-    });
+		code.parentNode.replaceChild(container, code);
+	});
 }
 
 
@@ -247,13 +247,14 @@ window.onload = function() {
 </head>
 <body>
   <div class="Title1">
-    List of available corpora
+	List of available corpora
   </div>
+	<br />### Review tags, some of the tags used in the tagsets for the UPF corpora might be incorrect
   <div class="TitleBurgundyBig">
-    American English:
+	American English:
   </div><br>
   <div class="TitleBluishSmall">
-    Corpus 1 (COCA)
+	Corpus 1 (COCA)
   </div>
  <br>
   <a href="http://corptedig-glif.upf.edu/cqpweb/coca/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/coca/</a> (user: guest, pwd: guest)
@@ -276,9 +277,9 @@ window.onload = function() {
  <span class="GreenSmall"> Complete tagset:</span> <a href="http://www.natcorp.ox.ac.uk/docs/c7spec.html" target="_blank" rel="noopener noreferrer">http://www.natcorp.ox.ac.uk/docs/c7spec.html</a><br>
   <p class="TitleBurgundyBig">British English:</p>
   <div class="TitleBluishSmall">
-    Corpus 2 (BNC in Sketchengine)
+	Corpus 2 (BNC in Sketchengine)
   </div><br>
-  <a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer">https://app.sketchengine.eu/</a> (choose British National Corpus - BNC) 
+  <a href="https://app.sketchengine.eu/" target="_blank" rel="noopener noreferrer">https://app.sketchengine.eu/</a> (choose British National Corpus - BNC)
   <p class="TitleGreenSmall">List of relevant tags:</p>
   <strong>Nouns</strong> ➝ <span class="mono"><code>[tag="N.*"]</code></span><br>
   <strong>Verbs</strong> ➝ <span class="mono"><code>[tag="VV.*"]</code></span><br>
@@ -289,7 +290,7 @@ window.onload = function() {
   <strong>Particles</strong> (e.g. about, in, out, up) ➝ <span class="mono"><code>[tag="RP"]</code></span> (relevant for phrasal verbs)<br><br>
 <span class="GreenSmall">Complete tagset:</span> <a href="https://www.sketchengine.eu/english-treetagger-pipeline-2/" target="_blank" rel="noopener noreferrer">https://www.sketchengine.eu/english-treetagger-pipeline-2/</a>
   <p class="TitleBluishSmall">
-    Corpus 3 (BNC UPF)
+	Corpus 3 (BNC UPF)
   </p>
  <span class="blink" id="blinking-text"> Make sure you select the option <span class="emf">'CQP Syntax'</span> in the <span class="emf">'Query mode'</span> menu</span><br>
   <a href="http://corptedig-glif.upf.edu/cqpweb/bnc/" target="_blank" rel="noopener noreferrer">http://corptedig-glif.upf.edu/cqpweb/bnc/</a> (user: guest, pwd: guest)<br>
@@ -297,14 +298,14 @@ window.onload = function() {
   <br>
 <span class="animated-text">Important note:</span> the tagset used in this corpus is very similar (not completely identical, though) to the one used in Sketchengine. The most important difference is that to do searches you need to use the label 'pos' instead of 'tag'.</p>
   <p class="TitleGreenSmall">
-    List of relevant tags:
+	List of relevant tags:
   </p>
-  
+
   <strong>Nouns</strong> ➝ <span class="mono"><code>[pos="N.*"]</code></span><br>
   <strong>Verbs</strong> ➝ <span class="mono"><code>[pos="VV.*"]</code></span><br>
   <strong>Determiners</strong> ➝ <span class="mono"><code>[pos="DT0"]</code></span><br>
   <strong>Articles</strong> ➝ <span class="mono"><code>[pos="AT0"]</code></span><br>
-  <strong>Adjectives</strong> ➝ <span class="mono"><code>[pos="J.*"]</code></span><br>
+  <strong>Adjectives</strong> ➝ <span class="mono"><code>[pos="AJ.*"]</code></span><br>
   <strong>Prepositions</strong> ➝ <span class="mono"><code>[pos="PR.*"]</code></span><br>
   <strong>Pronouns</strong> ➝ <span class="mono"><code>[pos="PN.*"]</code></span><br>
   <strong>Particles</strong> (e.g. about, in, out, up) ➝ <span class="mono"><code>[pos="RP"]</code></span> (relevant for phrasal verbs) <br><br>
@@ -320,7 +321,7 @@ window.onload = function() {
 <span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code></span>
 
 <p class="TitleBluishSmall">Corpus 3 (BNC UPF)</p>
-<span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="J.*"]{0,2}[pos="N.*"]</code></span>
+<span class="emf">A Noun Phrase ➝ </span><span class="mono"><code>[(pos="DT0")|(pos="AT0")]{0,1}[pos="AJ.*"]{0,2}[pos="N.*"]</code></span>
 
 <br>
 <br>

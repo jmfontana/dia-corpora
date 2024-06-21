@@ -6,52 +6,52 @@
 
 <style>
   .code-container {
-    display: inline-block;
-    margin-left: 8px;
+	display: inline-block;
+	margin-left: 8px;
   }
 <!-- div element that makes characters bigger size bold and blue name it bigblue-->
   div.bigblue {
-    font-size: 18px;
-    font-weight: bold;
-    color: blue;
+	font-size: 18px;
+	font-weight: bold;
+	color: blue;
   }
 
   button.copy-code-button {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    margin-left: 8px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	margin-left: 8px;
   }
 </style>
 
 <script>
   window.onload = function() {
-    const buttons = document.querySelectorAll("button.copy-code-button");
-    buttons.forEach(function(button) {
-      button.textContent = "Copy";
-    });
+	const buttons = document.querySelectorAll("button.copy-code-button");
+	buttons.forEach(function(button) {
+	  button.textContent = "Copy";
+	});
 
-    const codeElements = document.querySelectorAll('code');
-    codeElements.forEach((code) => {
-      const container = document.createElement('div');
-      container.classList.add('code-container');
+	const codeElements = document.querySelectorAll('code');
+	codeElements.forEach((code) => {
+	  const container = document.createElement('div');
+	  container.classList.add('code-container');
 
-      const textNode = document.createTextNode(code.textContent);
-      container.appendChild(textNode);
+	  const textNode = document.createTextNode(code.textContent);
+	  container.appendChild(textNode);
 
-      const button = document.createElement('button');
-      button.classList.add('copy-code-button');
-      button.textContent = 'Copy';
-      container.appendChild(button);
+	  const button = document.createElement('button');
+	  button.classList.add('copy-code-button');
+	  button.textContent = 'Copy';
+	  container.appendChild(button);
 
-      button.addEventListener('click', () => {
-        if (code.textContent.match(/^\[pos=".*"\]$/)) {
-          const stringToCopy = code.textContent;
-          navigator.clipboard.writeText(stringToCopy);
-        }
-      });
+	  button.addEventListener('click', () => {
+		if (code.textContent.match(/^\[pos=".*"\]$/)) {
+		  const stringToCopy = code.textContent;
+		  navigator.clipboard.writeText(stringToCopy);
+		}
+	  });
 
-      code.parentNode.replaceChild(container, code);
-    });
+	  code.parentNode.replaceChild(container, code);
+	});
   }
 </script>
 
@@ -108,7 +108,7 @@ line-height:110%;font-family:Helvetica'>:</span></p>
 14.0pt;line-height:110%;font-family:Helvetica'><b>Nouns</b></span> ➝ <span
 style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><code>[pos=&quot;n.*&quot;]</code></span><span
  style='font-size:14.0pt;line-height:110%;font-family:Helvetica'><br>
-<b>Verbs</b></span> ➝ <span 
+<b>Verbs</b></span> ➝ <span
 style='font-size:14.0pt;line-height:110%;font-family:Helvetica'> <code>[pos=&quot;vv.*&quot;]</code><br>
 </span><span style='font-size:14.0pt;line-height:110%;font-family:
 Helvetica'><b>Determiners</b></span> ➝ <span
@@ -252,7 +252,7 @@ style='font-size:18.0pt'>&nbsp;</span></p>
 style='font-size:18.0pt'>&nbsp;</span></p>
 
 </div>
-	
+
 </body>
 
 </html>

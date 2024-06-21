@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
+<style>
+.code-container {
+  background-color: black;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px; /* Added space between blocks */
+  margin-top: 10px;
+  overflow-x: auto; /* Add horizontal scrollbar */
+}
+code {
+/* Add padding to code block for consistent spacing */
+  display: inline-block;
+  padding-top: 14px;
+  font-size: 11pt;
+}
+pre {
+  background-color: black;
+  color: white;
+  font-family:  "DejaVu Sans Mono", monospace;
+  white-space: pre; /* Maintain preformatted text */
+  margin: 0; /* Remove margin to avoid extra space */
+  display: inline-block; /* Ensure inline-block for horizontal scrolling */
+}
+body {
+	margin: 25pt 55pt 65pt 55pt;
+	word-wrap: break-word;
+	font-family: Helvetica;
+	font-size: 12pt;
+	line-height: 1.5;
+	background-color: #f4f4f4; /* Set the background color to a nice, pleasant color */
+}
+
+.center-text {
+	text-align: center !important;
+}
+
+.reduspace {
+	margin-bottom: 0.1em;
+}
+
+.emf {
+	font-weight: bold;
+	font-size: 12.5pt;
+}
+
+a:link {
+	color: #193f7d;
+}
+
+a:visited {
+	color: #193f7d;
+}
+
+			/* The following are used in  or <div> tags for different kinds of titles:
+  in the original 'descripcio_i_analisi_corpora.html .This is a CSS comment */
+
+.Title1 {
+	font-size: 14pt;
+	font-weight: bold;
+	line-height: 2;
+	font-family: Helvetica;
+}
+
+.Title2 {
+	font-size: 14pt;
+	font-weight: bold;
+	line-height: 2;
+	font-family: Helvetica;
+}
+
+.TitleBurgundyBig {
+	font-size: 14pt;
+	font-weight: bold;
+	/*   line-height: 110%; */
+	font-family: Helvetica;
+	color: #971930;
+}
+.TitleBluishSmall {
+	font-size: 12pt;
+	font-weight: bold;
+	line-height: 110%;
+	font-family: Helvetica;
+	color: #262192;
+}
+.TitleGreenSmall {
+	font-size: 14pt;
+	font-weight: bold;
+	line-height: 110%;
+	font-family: Helvetica;
+	color: #0a4803;
+}
+.GreenSmall {
+	font-size: 12pt;
+	font-weight: bold;
+	line-height: 110%;
+	font-family: Helvetica;
+	color: #0a4803;
+}
+
+ul.spaced-list {
+	line-height: 1.5; /* Adjust the value as needed */
+}
+
+a:hover {
+	color: blue;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+span {
+	font-size: 12pt;
+	font-family: "DejaVu Sans Mono", monospace;
+}
+
+.animated-text {
+	animation: emphasis 1s infinite;
+	transition: color 0.5s ease-in-out;
+}
+
+@keyframes emphasis {
+	0%,
+	100% {
+		color: black; /* Starting color */
+		font-weight: bold; /* Keep text in bold */
+	}
+	50% {
+		color: #801e31; /* Midpoint color */
+		font-weight: bold; /* Keep text in bold */
+	}
+}
+
+.animated-text:hover {
+	color: blue; /* Hover color */
+	font-weight: bold; /* Keep text in bold */
+	font-size: 14px; /* Hover font size */
+}
+@keyframes blink-animation {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.blink {
+	animation: blink-animation 2s linear infinite;
+}
+
+			/*
+  hr {
+	color: #000000; Set the color of the line height: 1px; Set the height of the line    border-style: solid; Set the border style (solid, dashed, dotted, etc.)    border-width: 1px; Set the width of the border  }
+ */
+
+hr {
+	height: 2px;
+	/*   border-style: dashed; */
+	border-color: #3a2b69;
+}
+
+.bracket {
+  color: #fc44a5;
+  font-weight: bolder;
+}
+
+.brace {
+  color: white;
+}
+
+.parenthesis {
+
+  color: #53ea30;
+  font-weight: bolder;
+}
+
+.pipe {
+  color: blue;
+  font-weight: bolder;
+}
+
+.tag {
+  color: orange; /* Example color for tags */
+}
+.pos {
+		color: orange; /* Example color for tags */
+	}
+
+.copy-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: inherit;
+  border-radius: 15px;
+  background-color: #09519f;
+  font-size: 8pt;
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+</style>
+	<script>
+		function highlightSyntax(codeBlock) {
+			let html = "";
+			const code = codeBlock.textContent;
+
+			for (let i = 0; i < code.length; i++) {
+				let char = code[i];
+				let className = "";
+
+				switch (char) {
+					case '[':
+					case ']':
+						className = "bracket";
+						break;
+					case '(':
+					case ')':
+						className = "parenthesis";
+						break;
+					case '{':
+					case '}':
+						className = "brace";
+						break;
+					case '|':
+						className = "pipe";
+						break;
+					default:
+						if (code.substring(i).startsWith('pos="')) {
+							className = "pos";
+							let endIndex = code.indexOf('"', i + 5); // Find closing quote
+							char = code.substring(i, endIndex + 1); // Include the entire tag
+							i = endIndex; // Move i to the end of the tag
+						}
+				}
+
+				html += `<span class="${className}">${char}</span>`;
+			}
+
+			codeBlock.innerHTML = html;
+		}
+
+		function copyCode(event) {
+			var button = event.target;
+			var codeBlock = button.previousElementSibling.querySelector('code');
+			var plainText = codeBlock.textContent; // Get plain text content
+
+			// Create a temporary textarea element to hold the text
+			var tempTextarea = document.createElement('textarea');
+			tempTextarea.value = plainText;
+			document.body.appendChild(tempTextarea);
+			tempTextarea.select();
+			document.execCommand('copy');
+			document.body.removeChild(tempTextarea);
+			alert("Code copied to clipboard!");
+		}
+
+		// Call the highlightSyntax function after the page loads
+		window.onload = function() {
+			var codeBlocks = document.querySelectorAll('.code-block');
+			codeBlocks.forEach(highlightSyntax);
+
+			var copyButtons = document.querySelectorAll('.copy-button');
+			copyButtons.forEach(function(button) {
+				button.addEventListener('click', copyCode);
+			});
+		};
+	</script>
+			<title>CQP search templates</title>
+</head>
+<body>
+
+		<div class="Title1 center-text">Premade searches with CQP syntax</div>
+	<div class="Title1 center-text">This needs to be changed. Our installation of BNC works with the pos tags from https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/ THAT is, not the same as the version of BNC from sketchengine we used in class (which is not the CLAWS tagset). In the other DiA help webpages I prepared this is all wrong and should be changed. In this page, I only fixed <br />Verb + Particle + Prepositional Phrase </div>
+
+		<div class="Title2 center-text">Tagset: BNC (Sketchengine)</div>
+		<br>
+
+	<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">1. Verb</span> ➝ V</div>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"]</code>
+  </pre>
+</div>
+<button class="copy-button">Click this button to copy query to clipboard</button>
+			<br>
+		<hr />
+		<br>
+		<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">2. NP</span> ➝ (Det) (Adj) N</div>
+<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"]</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+
+
+	<br>
+		<hr />
+<br>
+
+
+	<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">3. NP</span> ➝ Pronoun</div>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="PP"]</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+
+		<hr />
+		<br>
+	<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">4. NP</span> ➝ Full NP or Pronoun</div>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">(([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+	<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">5. Prepositional Phrase</span> ➝ Preposition + NP</div>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+	<div class="TitleBluishSmall"> <span class="TitleBurgundyBig">6. Particle</span> ➝ Looks like a preposition but ain't a preposition</div>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="RP"]</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+		<span class="TitleBurgundyBig">Verb + Particle</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"][tag="RP.*"]</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+			<span class="TitleBurgundyBig">Verb + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"][tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+			<span class="TitleBurgundyBig">Verb + Particle + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[pos="VV.*"][pos="AVP"][pos="PR.*"](([pos="AT.*"]{0,1}[pos="AJ.*"]{0,1}[pos="N.*"])|([pos="PN.*"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+			<span class="TitleBurgundyBig">Verb + NP + Particle + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))[tag="RP"][tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+				<span class="TitleBurgundyBig">Verb + NP + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))[tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+		<span class="TitleBurgundyBig">Verb + NP (pronoun) + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"][tag="PP.*"][tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+		<span class="TitleBurgundyBig">Verb + NP (pronoun) + Particle + Prepositional Phrase</span>
+
+	<div class="code-container">
+  <pre>
+	<code class="code-block">[tag="VV.*"][tag="PP.*"][tag="RP.*"][tag="IN"](([tag="DT"]{0,1}[tag="J.*"]{0,1}[tag="N.*"])|([tag="PP"]))</code>
+  </pre>
+</div>
+<button class="copy-button">Copy query</button>
+			<br>
+		<hr />
+		<br>
+	<div class= GreenSmall>For more examples of premade complex searches, check here</div>
+	<br>
+	<a href="https://jmfontana.github.io/dia-corpora/searches_grammatical_functions.html" target="_blank">https://jmfontana.github.io/dia-corpora/searches_grammatical_functions.html</a>
+	<br>
+	<br>
+
+</body>
+</html>
